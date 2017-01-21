@@ -3,19 +3,6 @@ define(function (require) {
     var React = require('react');
     var ReactDOM = require('react-dom');
 
-    require('css!bootstrap');
-    require('css!bootstrap-theme');
-
-    require('css!jquery-ui');
-    require('jquery-ui');
-
-    var BootstrapButton = require('app/button');
-    var BootstrapModal = require('app/modal');
-
-    require('css!antd');
-    var antd = require('antd');
-    var Select = antd.Select;
-    var Option = antd.Select.Option;
 
 
     function App() {
@@ -52,9 +39,9 @@ define(function (require) {
                     "Scala",
                     "Scheme"
                 ];
-                $(this.refs.autocomplete).autocomplete({
-                    source: availableTags
-                });
+                // $(this.refs.autocomplete).autocomplete({
+                //     source: availableTags
+                // });
 
 
                 var self = this;
@@ -69,7 +56,7 @@ define(function (require) {
                 clearInterval(this.timerId);
             },
             handleClick: function (module) {
-                require([module], function (App) {
+                window.require([module], function (App) {
                     var app = new App();
                     app.init();
                 });
@@ -98,7 +85,7 @@ define(function (require) {
             },
 
             appendOption: function () {
-                var $option = $("<option value='longOption'>longOption</option>");	//  创建第一个<li>元素
+                var $option = $("<option value='longOption'>longOption</option>");	
                 $(this.refs.selector).append($option);
                 //$("#selector").append($option);      
 
@@ -121,18 +108,6 @@ define(function (require) {
 
 
             render: function () {
-                var modal = (
-                    <BootstrapModal
-                        ref="modal"
-                        confirm="OK"
-                        cancel="Cancel"
-                        onCancel={this.handleCancel}
-                        onConfirm={this.closeModal}
-                        onHidden={this.handleModalDidClose}
-                        title="Hello, Bootstrap!">
-                        This is a React component powered by jQuery and Bootstrap!
-                    </BootstrapModal>
-                );
 
                 var rotateStyle = {
                     margin: '30',
@@ -148,68 +123,13 @@ define(function (require) {
 
 
                 return (
-                    <div style={{ backgroundImage: "url('eg_bg_06.gif')", padding: '10' }}>
+                    <div style={{ backgroundImage: "url('eg_bg_06.gif')", padding: '10px' }}>
                         <h1>Hello, React Page 1!</h1>
                         <a href="javascript:void(0)" onClick={this.handleClick.bind(this, 'app/screen2')}>Go to React Page 2</a>
                         <br />
                         <a href="javascript:void(0)" onClick={this.handleClick.bind(this, 'app/form')}>Go to Form Page</a>
-                        <br />
-                        <a href="javascript:void(0)" onClick={this.handleClick.bind(this, 'app/table')}>Go to Table Page</a>
-                        <br />
-                        <a href="javascript:void(0)" onClick={this.handleClick.bind(this, 'app/starter-template')}>Go to Starter Template Page</a>
-                        <br />
-                        <a href="javascript:void(0)" onClick={this.handleClick.bind(this, 'app/console')}>Go to Console Page</a>
-                        <br />
-                        <a href="javascript:void(0)" onClick={this.handleClick.bind(this, 'app/ant')}>Go to Ant Page</a>
-                        <br />
-                        <a href="javascript:void(0)" onClick={this.handleClick.bind(this, 'app/ant_table')}>Go to Ant Table Page</a>
-                        <br />
-                        <a href="javascript:void(0)" onClick={this.handleClick.bind(this, 'app/jmui-test')}>Go to JMUI Page</a>
-                        <br />
-                        <a href="javascript:void(0)" onClick={this.handleClick.bind(this, 'app/active-links')}>Go to Active Links</a>
-                        <br />
-                        {modal}
-                        <BootstrapButton onClick={this.openModal} className="btn-default" style={{ margin: '10' }}>
-                            Open modal
-                        </BootstrapButton>
 
-                        <BootstrapButton onClick={this.rotate} className="btn-default" style={{ margin: '10' }}>
-                            rotate
-            </BootstrapButton>
                         <div style={rotateStyle}>你好。这是一个 div 元素。</div>
-                        <br />
-                        <div>
-                            <input ref="autocomplete" title="type &quot;a&quot;" />
-                        </div>
-                        <br />
-                        <div style={{ fontFamily: 'myFirstFont' }}>With CSS3, websites can finally use fonts other than the pre-selected "web-safe" fonts.</div>
-                        <br />
-                        <div onMouseEnter={this.onMouseEnter} onMouseLeave={this.onMouseLeave} style={this.style()}></div>
-                        <br />
-                        <div style={{ background: 'red', width: '100px', height: '100px', animation: 'myfirst 5s' }}></div>
-                        <br />
-                        <antd.DatePicker />
-                        <br />
-                        <antd.Input maxLength="9" />
-                        <br />
-                        <Select defaultValue="lucy" style={{ width: 120 }}>
-                            <Option value="jack">Jack</Option>
-                            <Option value="lucy">Lucy</Option>
-                            <Option value="disabled" disabled>Disabled</Option>
-                            <Option value="yiminghe" title="yiminghe">yiminghe</Option>
-                        </Select>
-                        <br />
-                        <select id="selector" ref="selector">
-                            <option value="volvo">Volvo</option>
-                            <option value="saab">Saab</option>
-                            <option value="opel">Opel</option>
-                            <option value="audi">Audi</option>
-                        </select>
-                        <br />
-                        <BootstrapButton onClick={this.appendOption} className="btn-default" style={{ margin: '10' }}>
-                            Append option
-            </BootstrapButton>
-
                     </div>
                 );
             }

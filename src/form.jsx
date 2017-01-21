@@ -33,7 +33,7 @@ define(function(require){
 
     this.AppView = React.createClass({
       handleClick: function(module) {
-          require([module], function(App){
+          window.require([module], function(App){
               var app = new App();
               app.init();
           });
