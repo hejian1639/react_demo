@@ -1,8 +1,8 @@
 {
-  "name": "spring_webapp",
+  "name": "react-demo",
   "version": "1.0.0",
   "description": "node modules",
-  "author": "Derek Hou",
+  "author": "John He",
   "dependencies": {
     "almond": "0.3.2",
     "babel": "6.5.2",
