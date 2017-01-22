@@ -114,7 +114,6 @@ function App() {
                 height: '75px',
                 backgroundColor: 'yellow',
                 border: '1px solid black',
-                border: '2px solid',
                 borderRadius: '5px',
                 textShadow: '1px 1px 1px #FF0000',
                 transform: 'rotate(' + this.state.degree + 'deg)',
