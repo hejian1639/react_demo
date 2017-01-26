@@ -34,7 +34,7 @@
     "open-browser-webpack-plugin": "0.x",
     "react": "15.x",
     "react-dom": "15.x",
-    "react-router": "2.x",
+    "react-router": "^2.0.0",
     "requirejs": "2.2.0",
     "run-sequence": "^1.2.2",
     "style-loader": "0.x",
