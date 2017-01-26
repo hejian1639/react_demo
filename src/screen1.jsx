@@ -126,6 +126,8 @@ function App() {
                     <a href="javascript:void(0)" onClick={this.handleClick.bind(this, 'app/screen2')}>Go to React Page 2</a>
                     <br />
                     <a href="javascript:void(0)" onClick={this.handleClick.bind(this, 'app/form')}>Go to Form Page</a>
+                    <br />
+                    <a href="javascript:void(0)" onClick={this.handleClick.bind(this, 'app/active-links')}>Go to Active Links</a>
 
                     <div style={rotateStyle}>你好。这是一个 div 元素。</div>
                 </div>

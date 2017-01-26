@@ -7,6 +7,7 @@ module.exports = {
         screen1: "./src/screen1.jsx",
         screen2: "./src/screen2.jsx",
         form: "./src/form.jsx",
+        'active-links': "./src/active-links.jsx",
     },
     output: {
         path: path.join(__dirname, "app"),
@@ -29,8 +30,11 @@ module.exports = {
         'app/screen1': 'app/screen1',
         'app/screen2': 'app/screen2',
         'app/form': 'app/form',
+        'app/active-links': 'app/active-links',
         'react': 'react',
         'react-dom': 'react-dom',
+        'ReactRouter': 'ReactRouter',
+        'history': 'history',
 
     }]
 };
