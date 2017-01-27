@@ -125,6 +125,7 @@ module.exports = React.createClass({
                 <h1>Hello, React Page 1!</h1>
                 <ul role="nav">
                     <li><Link to="/page2">Go to React Page 2</Link></li>
+                    <li><Link to="/form">Go to Form Page</Link></li>
                 </ul>
 
                 <div style={rotateStyle}>你好。这是一个 div 元素。</div>

@@ -4,7 +4,7 @@ module.exports = {
 
     entry: {
         main: "./src/main.jsx",
-        screen1: "./src/screen1.jsx",
+        home: "./src/home.jsx",
         screen2: "./src/screen2.jsx",
         form: "./src/form.jsx",
         'active-links': "./src/active-links.jsx",
@@ -27,7 +27,7 @@ module.exports = {
         // require("jquery") is external and available
         //  on the global var jQuery
         //  "jquery": "jQuery"
-        'app/screen1': 'app/screen1',
+        'app/home': 'app/home',
         'app/screen2': 'app/screen2',
         'app/form': 'app/form',
         'app/active-links': 'app/active-links',
