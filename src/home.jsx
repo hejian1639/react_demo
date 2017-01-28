@@ -1,6 +1,5 @@
 
 import React from 'react'
-import ReactDOM from 'react-dom'
 import { Link } from 'ReactRouter'
 
 
@@ -126,6 +125,9 @@ module.exports = React.createClass({
                 <ul role="nav">
                     <li><Link to="/page2">Go to React Page 2</Link></li>
                     <li><Link to="/form">Go to Form Page</Link></li>
+                    <li><Link to="/jmui">Go to JMUI</Link></li>
+                    <li><Link to="/kitchensink">Go to kitchensink</Link></li>
+                    <li><Link to="/animation">Go to Animation Page</Link></li>
                 </ul>
 
                 <div style={rotateStyle}>你好。这是一个 div 元素。</div>

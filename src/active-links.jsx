@@ -2,8 +2,6 @@ import React from 'react'
 import ReactDOM from 'react-dom'
 
 import ReactRouter from 'ReactRouter'
-import History from 'history';
-// import { hashHistory } from 'react-router'
 
 var Router = ReactRouter.Router;
 var Route = ReactRouter.Route;

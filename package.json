@@ -33,6 +33,7 @@
     "jsx-loader": "~0.13.2",
     "open-browser-webpack-plugin": "0.x",
     "react": "15.x",
+    "react-addons-css-transition-group": "15.x",
     "react-dom": "15.x",
     "react-router": "^2.0.0",
     "requirejs": "2.2.0",
