@@ -108,7 +108,7 @@ module.exports = React.createClass({
     render: function () {
 
         var rotateStyle = {
-            margin: '30',
+            margin: '30px',
             width: '100px',
             height: '75px',
             backgroundColor: 'yellow',

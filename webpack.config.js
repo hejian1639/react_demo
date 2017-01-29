@@ -38,9 +38,30 @@ module.exports = {
         'app/jmui-test': 'app/jmui-test',
         'app/kitchensink': 'app/kitchensink',
         'app/animation': 'app/animation',
-        'react': 'react',
-        'react-dom': 'react-dom',
-        'react-addons-css-transition-group': 'react-addons-css-transition-group',
+        'react': {
+            root: 'React',
+            commonjs2: 'react',
+            commonjs: 'react',
+            amd: 'react'
+        },
+        'react-dom': {
+            root: 'ReactDOM',
+            commonjs2: 'react-dom',
+            commonjs: 'react-dom',
+            amd: 'react-dom'
+        },
+        'react-addons-css-transition-group': {
+            root: 'ReactCSSTransitionGroup',
+            commonjs2: 'react-addons-css-transition-group',
+            commonjs: 'react-addons-css-transition-group',
+            amd: 'react-addons-css-transition-group'
+        },
+        'react-transition': {
+            root: 'ReactTransition',
+            commonjs2: 'react-transition',
+            commonjs: 'react-transition',
+            amd: 'react-transition'
+        },
         'ReactRouter': 'ReactRouter',
         'jmui': 'jmui',
         'css!jmui.ios.core': 'css!jmui.ios.core'

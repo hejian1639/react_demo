@@ -39,13 +39,13 @@ module.exports = React.createClass({
   },
   render: function () {
     return (
-      <div >
+      <div style={{ margin: '10px' }}>
         <form>
           名：
-            <input type="text" name="firstname" style={{ margin: '10' }} />
+            <input type="text" name="firstname" style={{ margin: '10px' }} />
           <br />
           姓：
-            <input type="text" name="lastname" style={{ margin: '10' }} />
+            <input type="text" name="lastname" style={{ margin: '10px' }} />
         </form>
         <br />
         <Link to="/">Go back to React Page 1</Link>
