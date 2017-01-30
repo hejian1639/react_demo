@@ -9,7 +9,7 @@ module.exports = {
         form: "./src/form.jsx",
         'active-links': "./src/active-links.jsx",
         'jmui-test': "./src/jmui-test.jsx",
-        'kitchensink': "./src/kitchensink/index.js",
+        'kitchensink': "./src/kitchensink/Root.js",
         'animation': "./src/animation.jsx",
     },
     output: {
@@ -25,6 +25,14 @@ module.exports = {
                 loader: 'babel-loader?presets[]=es2015&presets[]=react',
       },
             { test: /\.css$/, loader: 'style-loader!css-loader' },
+            { test: /\.less$/, loader: 'style-loader!css-loader' },
+            { test: /\.woff(\?.*)?$/, loader: 'file?name=[name].[ext]' },
+            { test: /\.woff2(\?.*)?$/, loader: 'file?name=[name].[ext]' },
+            { test: /\.otf(\?.*)?$/, loader: 'file?name=[name].[ext]' },
+            { test: /\.ttf(\?.*)?$/, loader: 'file?name=[name].[ext]' },
+            { test: /\.eot(\?.*)?$/, loader: 'file?name=[name].[ext]' },
+            { test: /\.svg(\?.*)?$/, loader: 'file?name=[name].[ext]' },
+            { test: /\.(png|jpg)$/, loader: 'file?name=[name].[ext]' }
     ]
     },
     externals: [{

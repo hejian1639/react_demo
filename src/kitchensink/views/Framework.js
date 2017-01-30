@@ -7,6 +7,7 @@ export default class Framework extends Component {
   render () {
     return (
       <TransitionPages location={this.props.location}>
+        {this.props.children}
       </TransitionPages>
     )
   }
