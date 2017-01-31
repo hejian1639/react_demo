@@ -1,5 +1,4 @@
 
-// import React , { Component, PropTypes } from 'react'
 import { Link } from 'ReactRouter'
 import React from 'react'
 

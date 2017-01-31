@@ -4,6 +4,7 @@ import { Link } from 'ReactRouter'
 
 
 
+__webpack_public_path__ = '/dist/';
 
 module.exports = React.createClass({
     getInitialState: function () {
@@ -120,7 +121,8 @@ module.exports = React.createClass({
 
 
         return (
-            <div style={{ backgroundImage: "url('eg_bg_06.gif')", padding: '10px' }}>
+
+            <div style={{ backgroundImage: 'url("' + require("./images/eg_bg_06.gif") + '")', padding: '10px' }}>
                 <h1>Hello, React Page 1!</h1>
                 <ul role="nav">
                     <li><Link to="/page2">Go to React Page 2</Link></li>

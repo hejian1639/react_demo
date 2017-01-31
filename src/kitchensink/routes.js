@@ -3,6 +3,8 @@ import { Route, IndexRoute } from 'ReactRouter'
 require('./styles/ios.less')
 require('./fonts/iconfont.css')
 
+__webpack_public_path__ = '/dist/';
+
 export default function getRoutes () {
   return (
     <Route path='/kitchensink' component={require('./views/Framework').default}>

@@ -15,18 +15,19 @@ module.exports = {
     output: {
         path: path.join(__dirname, "dist"),
         filename: "[name].js",
-        libraryTarget: "umd"
+        libraryTarget: "umd",
+        publishPath: '/'
     },
     module: {
         loaders: [
-      {
-        test: /\.(js|jsx)$/,
-        exclude: /node_modules/,
-        loader: 'babel',
-        query: {
-          cacheDirectory: true,
-          presets: ['es2015', 'react', 'stage-0']
-        }
+            {
+                test: /\.(js|jsx)$/,
+                exclude: /node_modules/,
+                loader: 'babel',
+                query: {
+                    cacheDirectory: true,
+                    presets: ['es2015', 'react', 'stage-0']
+                }
       },
             { test: /\.css$/, loader: 'style-loader!css-loader' },
             { test: /\.less$/, loader: 'style-loader!css-loader' },
@@ -36,7 +37,8 @@ module.exports = {
             { test: /\.ttf(\?.*)?$/, loader: 'file?name=[name].[ext]' },
             { test: /\.eot(\?.*)?$/, loader: 'file?name=[name].[ext]' },
             { test: /\.svg(\?.*)?$/, loader: 'file?name=[name].[ext]' },
-            { test: /\.(png|jpg)$/, loader: 'file?name=[name].[ext]' }
+            { test: /\.(png|jpg)$/, loader: 'file?name=[name].[ext]' },
+            { test: /\.(gif)$/, loader: 'url-loader?limit=4096&name=[name].[ext]' }
     ]
     },
     externals: [{
