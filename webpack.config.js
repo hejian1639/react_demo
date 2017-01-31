@@ -13,7 +13,7 @@ module.exports = {
         'animation': "./src/animation.jsx",
     },
     output: {
-        path: path.join(__dirname, "app"),
+        path: path.join(__dirname, "dist"),
         filename: "[name].js",
         libraryTarget: "umd"
     },

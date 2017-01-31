@@ -1,6 +1,7 @@
 import React from 'react'
 import { Route, IndexRoute } from 'ReactRouter'
 require('./styles/ios.less')
+require('./fonts/iconfont.css')
 
 export default function getRoutes () {
   return (
