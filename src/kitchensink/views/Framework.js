@@ -3,8 +3,12 @@ import { View, TransitionPages } from 'jmui'
 
 export default class Framework extends Component {
 
+  static propTypes = {
+    children: PropTypes.node,
+    location: PropTypes.object
+  };
 
-  render() {
+  render () {
     return (
       <View>
         <TransitionPages location={this.props.location}>

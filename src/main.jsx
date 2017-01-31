@@ -7,7 +7,6 @@ import Screen2 from 'app/screen2'
 import Form from 'app/form'
 import JMUI from 'app/jmui-test'
 import Animation from 'app/animation'
-// import Kitchensink from 'app/kitchensink'
 import getRoutes from 'app/kitchensink'
 const routes = getRoutes();
 

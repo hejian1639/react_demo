@@ -1,12 +1,15 @@
-import { browserHistory } from 'ReactRouter'
+import { browserHistory, Router } from 'react-router'
 import getRoutes from './routes'
-import Root from './Root'
 import React from 'react'
 import ReactDOM from 'react-dom'
+require('jmui/styles/ios/jmui.less')
+require('./styles/ios.less')
 
 const routes = getRoutes()
 
 ReactDOM.render(
-  <Root history={browserHistory} routes={routes} />,
+  <Router history={browserHistory}>
+    {routes}
+  </Router>,
   document.getElementById('root')
 )

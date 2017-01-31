@@ -3,6 +3,9 @@ import React, { Component, PropTypes } from 'react'
 
 export default class Pages extends Component {
 
+  static contextTypes = {
+    router: PropTypes.object
+  };
 
   handleBack () {
     this.context.router.push({
@@ -20,7 +23,7 @@ export default class Pages extends Component {
           left={{
             iconName: 'back',
             text: '返回',
-            onClick: this.handleBack
+            onClick: ::this.handleBack
           }}
       />}>
         <Block highlight>
