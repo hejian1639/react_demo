@@ -7,7 +7,9 @@ import Screen2 from 'app/screen2'
 import Form from 'app/form'
 import JMUI from 'app/jmui-test'
 import Animation from 'app/animation'
-import Kitchensink from 'app/kitchensink'
+// import Kitchensink from 'app/kitchensink'
+import getRoutes from 'app/kitchensink'
+const routes = getRoutes();
 
 ReactDOM.render((
   <Router history={browserHistory}>
@@ -16,6 +18,6 @@ ReactDOM.render((
     <Route path="/form" component={Form}/>
     <Route path="/jmui" component={JMUI}/>
     <Route path="/animation" component={Animation}/>
-    <Route path="/kitchensink" component={Kitchensink}/>
+    {routes}
   </Router>
 ), document.getElementById('root'));

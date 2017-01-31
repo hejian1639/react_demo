@@ -1,14 +1,16 @@
 import React, { Component, PropTypes } from 'react'
-import { TransitionPages } from 'jmui'
+import { View, TransitionPages } from 'jmui'
 
 export default class Framework extends Component {
 
 
-  render () {
+  render() {
     return (
-      <TransitionPages location={this.props.location}>
-        {this.props.children}
-      </TransitionPages>
+      <View>
+        <TransitionPages location={this.props.location}>
+          {this.props.children}
+        </TransitionPages>
+      </View>
     )
   }
 }

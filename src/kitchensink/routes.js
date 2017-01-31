@@ -1,5 +1,6 @@
 import React from 'react'
 import { Route, IndexRoute } from 'ReactRouter'
+require('./styles/ios.less')
 
 export default function getRoutes () {
   return (

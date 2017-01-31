@@ -9,7 +9,7 @@ module.exports = {
         form: "./src/form.jsx",
         'active-links': "./src/active-links.jsx",
         'jmui-test': "./src/jmui-test.jsx",
-        'kitchensink': "./src/kitchensink/Root.js",
+        'kitchensink': "./src/kitchensink/routes.js",
         'animation': "./src/animation.jsx",
     },
     output: {
