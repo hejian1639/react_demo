@@ -2,6 +2,7 @@
 import React from 'react'
 import { Link } from 'ReactRouter'
 
+import './style.css'
 
 
 __webpack_public_path__ = '/dist/';
@@ -122,7 +123,7 @@ module.exports = React.createClass({
 
         return (
 
-            <div style={{ backgroundImage: 'url("' + require("./images/eg_bg_06.gif") + '")', padding: '10px' }}>
+            <div style={{ backgroundImage: 'url("' + require("../images/eg_bg_06.gif") + '")', padding: '10px' }}>
                 <h1>Hello, React Page 1!</h1>
                 <ul role="nav">
                     <li><Link to="/page2">Go to React Page 2</Link></li>
@@ -133,6 +134,7 @@ module.exports = React.createClass({
                 </ul>
 
                 <div style={rotateStyle}>你好。这是一个 div 元素。</div>
+                <div style={{ fontFamily: 'myFirstFont' }}>With CSS3, websites can finally use fonts other than the pre-selected "web-safe" fonts.</div>
             </div>
         );
     }

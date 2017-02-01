@@ -4,7 +4,7 @@ module.exports = {
 
     entry: {
         main: "./src/main.jsx",
-        home: "./src/home.jsx",
+        home: "./src/home/index.jsx",
         screen2: "./src/screen2.jsx",
         form: "./src/form.jsx",
         'active-links': "./src/active-links.jsx",
