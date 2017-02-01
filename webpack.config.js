@@ -10,7 +10,7 @@ module.exports = {
         'active-links': "./src/active-links.jsx",
         'jmui-test': "./src/jmui-test.jsx",
         'kitchensink': "./src/kitchensink/routes.js",
-        'animation': "./src/animation.jsx",
+        'animation': "./src/animation/index.jsx",
     },
     output: {
         path: path.join(__dirname, "dist"),
