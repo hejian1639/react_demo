@@ -78,7 +78,8 @@ module.exports = {
         },
         'ReactRouter': 'ReactRouter',
         'jmui': 'jmui',
-        'css!jmui.ios.core': 'css!jmui.ios.core'
+        'css!jmui.ios.core': 'css!jmui.ios.core',
+        'css!fonts/iconfont': 'css!fonts/iconfont'
 
     }]
 };

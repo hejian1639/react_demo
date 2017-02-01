@@ -1,9 +1,8 @@
 import React from 'react'
 import { Route, IndexRoute } from 'ReactRouter'
 import './styles/ios.less'
-import '../../lib/fonts/iconfont.css'
+import 'css!fonts/iconfont'
 import 'css!jmui.ios.core'
-// requirejs( ['fonts/iconfont.woff']);
 
 __webpack_public_path__ = '/dist/';
 
