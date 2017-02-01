@@ -29,13 +29,13 @@
         requirejs.config({
             baseUrl: 'lib',
             paths: {
-                app: '../dist'
+                dist: '../dist'
             }
         });
 
         // Start loading the main app file. Put all of
         // your application logic in there.
-        requirejs(['app/main']);
+        requirejs(['dist/main']);
 
     </script>
 </body>

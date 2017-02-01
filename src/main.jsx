@@ -2,12 +2,12 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
 import { Router, Route, browserHistory } from 'ReactRouter'
-import Home from 'app/home'
-import Screen2 from 'app/screen2'
-import Form from 'app/form'
-import JMUI from 'app/jmui-test'
-import Animation from 'app/animation'
-import getRoutes from 'app/kitchensink'
+import Home from 'dist/home'
+import Screen2 from 'dist/screen2'
+import Form from 'dist/form'
+import JMUI from 'dist/jmui-test'
+import Animation from 'dist/animation'
+import getRoutes from 'dist/kitchensink'
 const routes = getRoutes();
 
 ReactDOM.render((
