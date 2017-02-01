@@ -4,7 +4,6 @@ import './styles/ios.less'
 import 'css!fonts/iconfont'
 import 'css!jmui.ios.core'
 
-__webpack_public_path__ = '/dist/';
 
 export default function getRoutes () {
   return (

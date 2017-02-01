@@ -2,10 +2,7 @@
 import React from 'react'
 import { Link } from 'ReactRouter'
 
-__webpack_public_path__ = '/dist/';
-
-// import './style.css'
-require('./style.css')
+import './style.css'
 
 
 
