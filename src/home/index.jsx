@@ -2,19 +2,28 @@
 import React from 'react'
 import { Link } from 'ReactRouter'
 
-import './style.css'
-
-
 __webpack_public_path__ = '/dist/';
 
+// import './style.css'
+require('./style.css')
+
+
+
 module.exports = React.createClass({
+
+    componentWillMount: function () { 
+        console.log('componentWillMount');
+    },
+
     getInitialState: function () {
+        console.log('getInitialState');
         return { degree: 0, hovered: false };
     },
 
     timerId: null,
 
     componentDidMount: function () {
+        console.log('componentDidMount');
         var availableTags = [
             "ActionScript",
             "AppleScript",
@@ -53,6 +62,7 @@ module.exports = React.createClass({
     },
 
     componentWillUnmount: function () {
+        console.log('componentWillUnmount');
         clearInterval(this.timerId);
     },
     handleClick: function (module) {
@@ -108,6 +118,7 @@ module.exports = React.createClass({
 
 
     render: function () {
+        console.log('render');
 
         var rotateStyle = {
             margin: '30px',
