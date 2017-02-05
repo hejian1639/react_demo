@@ -15,12 +15,14 @@ const routes = getRoutes();
 
 
 function withExampleBasename(history, dirname) {
-  return useBasename(() => history)({ basename: '/'+dirname })
+  var ret = useBasename(() => history)({ basename: dirname });
+  var location = ret.getCurrentLocation();
+  return ret;
 }
 
 
 ReactDOM.render((
-  <Router history={withExampleBasename(browserHistory, __dirname)}>
+  <Router history={withExampleBasename(browserHistory, browserHistory.getCurrentLocation().pathname)}>
     <Route path="/" component={Home}/>
     <Route path="/page2" component={Screen2}/>
     <Route path="/form" component={Form}/>
