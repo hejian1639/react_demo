@@ -77,6 +77,7 @@ module.exports = {
             amd: 'react-transition'
         },
         'ReactRouter': 'ReactRouter',
+        'History': 'History',
         'jmui': 'jmui',
         'css!jmui.ios.core': 'css!jmui.ios.core',
         'css!fonts/iconfont': 'css!fonts/iconfont'
