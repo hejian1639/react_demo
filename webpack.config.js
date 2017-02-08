@@ -5,7 +5,7 @@ module.exports = {
     entry: {
         main: "./src/main.jsx",
         home: "./src/home/index.jsx",
-        screen2: "./src/screen2.jsx",
+        react_page: "./src/react_page/index.jsx",
         form: "./src/form.jsx",
         'active-links': "./src/active-links.jsx",
         'jmui-test': "./src/jmui-test.jsx",
@@ -46,7 +46,7 @@ module.exports = {
         //  on the global var jQuery
         //  "jquery": "jQuery"
         'home': 'dist/home',
-        'screen2': 'dist/screen2',
+        'react-page': 'dist/react_page',
         'form': 'dist/form',
         'active-links': 'dist/active-links',
         'jmui-test': 'dist/jmui-test',

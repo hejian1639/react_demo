@@ -131,18 +131,16 @@ module.exports = React.createClass({
 
         return (
 
-            <div style={{ backgroundImage: 'url("' + require("../images/eg_bg_06.gif") + '")', padding: '10px' }}>
-                <h1>Hello, React Page 1!</h1>
+            <div style={{ padding: '10px' }}>
+                <h1>Home</h1>
                 <ul role="nav">
-                    <li><Link to="/page2">Go to React Page 2</Link></li>
+                    <li><Link to="/react_page">Go to React Page</Link></li>
                     <li><Link to="/form">Go to Form Page</Link></li>
                     <li><Link to="/jmui">Go to JMUI</Link></li>
                     <li><Link to="/kitchensink">Go to kitchensink</Link></li>
                     <li><Link to="/animation">Go to Animation Page</Link></li>
                 </ul>
 
-                <div style={rotateStyle}>你好。这是一个 div 元素。</div>
-                <div style={{ fontFamily: 'myFirstFont' }}>With CSS3, websites can finally use fonts other than the pre-selected "web-safe" fonts.</div>
             </div>
         );
     }
