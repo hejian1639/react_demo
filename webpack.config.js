@@ -45,13 +45,13 @@ module.exports = {
         // require("jquery") is external and available
         //  on the global var jQuery
         //  "jquery": "jQuery"
-        'dist/home': 'dist/home',
-        'dist/screen2': 'dist/screen2',
-        'dist/form': 'dist/form',
-        'dist/active-links': 'dist/active-links',
-        'dist/jmui-test': 'dist/jmui-test',
-        'dist/kitchensink': 'dist/kitchensink',
-        'dist/animation': 'dist/animation',
+        'home': 'dist/home',
+        'screen2': 'dist/screen2',
+        'form': 'dist/form',
+        'active-links': 'dist/active-links',
+        'jmui-test': 'dist/jmui-test',
+        'kitchensink': 'dist/kitchensink',
+        'animation': 'dist/animation',
         'react': {
             root: 'React',
             commonjs2: 'react',

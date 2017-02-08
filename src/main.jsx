@@ -5,12 +5,12 @@ import ReactDOM from 'react-dom'
 import { useBasename } from 'History'
 
 import { Router, Route, browserHistory } from 'ReactRouter'
-import Home from 'dist/home'
-import Screen2 from 'dist/screen2'
-import Form from 'dist/form'
-import JMUI from 'dist/jmui-test'
-import Animation from 'dist/animation'
-import getRoutes from 'dist/kitchensink'
+import Home from 'home'
+import Screen2 from 'screen2'
+import Form from 'form'
+import JMUI from 'jmui-test'
+import Animation from 'animation'
+import getRoutes from 'kitchensink'
 const routes = getRoutes();
 
 
