@@ -50,17 +50,12 @@ module.exports = React.createClass({
         // });
 
 
-        var self = this;
 
-        this.timerId = setInterval(function () {
-            self.setState({ degree: self.state.degree + 1 });
-        }, 50);
 
     },
 
     componentWillUnmount: function () {
         console.log('componentWillUnmount');
-        clearInterval(this.timerId);
     },
     handleClick: function (module) {
         window.require([module], function (App) {

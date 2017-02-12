@@ -6,6 +6,7 @@ import './style.css'
 
 export default class ReactPage extends React.Component {
     constructor(props) {
+        console.log('constructor');
         super(props)
         this.state = {
             degree: 0, hovered: false
@@ -28,6 +29,7 @@ export default class ReactPage extends React.Component {
     }
 
     render() {
+        console.log('render');
         var rotateStyle = {
             margin: '30px',
             width: '100px',
