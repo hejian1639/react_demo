@@ -12,6 +12,7 @@ module.exports = {
         'kitchensink': "./src/kitchensink/routes.js",
         'animation': "./src/animation/index.jsx",
         'music': "./src/music/index.jsx",
+        'header': "./src/header/index.jsx",
     },
     output: {
         path: path.join(__dirname, "dist"),
@@ -57,6 +58,7 @@ module.exports = {
         'kitchensink': 'dist/kitchensink',
         'animation': 'dist/animation',
         'music': 'dist/music',
+        'header': 'dist/header',
         'jquery': 'jquery',
         'react': {
             root: 'React',
