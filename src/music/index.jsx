@@ -3,8 +3,6 @@ import './css/jplayer.blue.monday.css'
 import $ from 'jquery'
 import './jquery.jplayer'
 import './jquery.jplayer.swf'
-import './Miaow-07-Bubble.m4a'
-import './Miaow-07-Bubble.ogg'
 
 export default class Music extends React.Component {
 
@@ -13,8 +11,8 @@ export default class Music extends React.Component {
             ready: function (event) {
                 $(this).jPlayer("setMedia", {
                     title: "Bubble",
-                    m4a: "Miaow-07-Bubble.m4a",
-                    oga: "Miaow-07-Bubble.ogg"
+                    m4a: require("../asset/Miaow-07-Bubble.m4a"),
+                    oga: require("../asset/Miaow-07-Bubble.ogg")
                 });
             },
             swfPath: "jplayer",
@@ -34,7 +32,6 @@ export default class Music extends React.Component {
     render() {
         return (
             <div>
-                <div id="jquery_jplayer_1" className="jp-jplayer"></div>
                 <div id="jp_container_1" className="jp-audio" role="application" aria-label="media player">
                     <div className="jp-type-single">
                         <div className="jp-gui jp-interface">

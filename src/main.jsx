@@ -24,13 +24,18 @@ function withExampleBasename(history, dirname) {
 
 
 ReactDOM.render((
-  <Router history={withExampleBasename(browserHistory, browserHistory.getCurrentLocation().pathname)}>
-    <Route path="/" component={Home}/>
-    <Route path="/react_page" component={ReactPage}/>
-    <Route path="/form" component={Form}/>
-    <Route path="/jmui" component={JMUI}/>
-    <Route path="/animation" component={Animation}/>
-    {routes}
-    <Route path="/music" component={Music}/>
-  </Router>
-), document.getElementById('root'));
+  <div>
+    <Router history={withExampleBasename(browserHistory, browserHistory.getCurrentLocation().pathname)}>
+      <Route path="/" component={Home} />
+      <Route path="/react_page" component={ReactPage} />
+      <Route path="/form" component={Form} />
+      <Route path="/jmui" component={JMUI} />
+      <Route path="/animation" component={Animation} />
+      {routes}
+      <Route path="/music" component={Music} />
+    </Router>
+    <div id="jquery_jplayer_1" className="jp-jplayer"></div>
+  </div>
+), document.getElementById('root'), function(){
+  
+});
