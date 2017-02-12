@@ -2,7 +2,6 @@
 import React from 'react'
 import { Link } from 'ReactRouter'
 
-import './style.css'
 
 
 
