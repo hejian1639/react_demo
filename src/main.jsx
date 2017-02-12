@@ -11,6 +11,8 @@ import Form from 'form'
 import JMUI from 'jmui-test'
 import Animation from 'animation'
 import getRoutes from 'kitchensink'
+import Music from 'music'
+
 const routes = getRoutes();
 
 
@@ -29,5 +31,6 @@ ReactDOM.render((
     <Route path="/jmui" component={JMUI}/>
     <Route path="/animation" component={Animation}/>
     {routes}
+    <Route path="/music" component={Music}/>
   </Router>
 ), document.getElementById('root'));

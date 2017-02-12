@@ -11,6 +11,7 @@ module.exports = {
         'jmui-test': "./src/jmui-test.jsx",
         'kitchensink': "./src/kitchensink/routes.js",
         'animation': "./src/animation/index.jsx",
+        'music': "./src/music/index.jsx",
     },
     output: {
         path: path.join(__dirname, "dist"),
@@ -38,7 +39,10 @@ module.exports = {
             { test: /\.eot(\?.*)?$/, loader: 'file?name=[name].[ext]' },
             { test: /\.svg(\?.*)?$/, loader: 'file?name=[name].[ext]' },
             { test: /\.(png|jpg)$/, loader: 'file?name=[name].[ext]' },
-            { test: /\.(gif)$/, loader: 'url-loader?limit=4096&name=[name].[ext]' }
+            { test: /\.(gif)$/, loader: 'url-loader?limit=4096&name=[name].[ext]' },
+            { test: /\.swf$/, loader: 'file?name=[name].[ext]' },
+            { test: /\.m4a$/, loader: 'file?name=[name].[ext]' },
+            { test: /\.ogg$/, loader: 'file?name=[name].[ext]' },
     ]
     },
     externals: [{
@@ -52,6 +56,8 @@ module.exports = {
         'jmui-test': 'dist/jmui-test',
         'kitchensink': 'dist/kitchensink',
         'animation': 'dist/animation',
+        'music': 'dist/music',
+        'jquery': 'jquery',
         'react': {
             root: 'React',
             commonjs2: 'react',
