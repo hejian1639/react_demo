@@ -2,7 +2,7 @@ import React from 'react'
 import ReactCSSTransitionGroup from 'react-addons-css-transition-group'
 import './style.css'
 
-class Animation extends React.Component {
+export default class Animation extends React.Component {
 
     render() {
         return (
@@ -18,4 +18,3 @@ class Animation extends React.Component {
     }
 }
 
-export default Animation;
