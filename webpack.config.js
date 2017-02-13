@@ -31,7 +31,7 @@ module.exports = {
                     presets: ['es2015', 'react', 'stage-0']
                 }
       },
-            { test: /\.css$/, loader: 'style-loader!css-loader' },
+            { test: /\.css$/, loader: 'style-loader!css-loader?modules' },
             { test: /\.less$/, loader: 'style-loader!css-loader' },
             { test: /\.woff(\?.*)?$/, loader: 'file?name=[name].[ext]' },
             { test: /\.woff2(\?.*)?$/, loader: 'file?name=[name].[ext]' },
