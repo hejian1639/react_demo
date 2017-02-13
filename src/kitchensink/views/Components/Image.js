@@ -2,7 +2,6 @@ import { Page, TransitionPages, Navbar, Block, Image, Row, Col } from 'jmui'
 import React, { Component, PropTypes } from 'react'
 import { browserHistory } from 'ReactRouter'
 
-__webpack_public_path__ = browserHistory.getCurrentLocation().pathname + 'dist/';
 
 export default class ImageView extends Component {
 

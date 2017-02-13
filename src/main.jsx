@@ -24,7 +24,7 @@ function withExampleBasename(history, dirname) {
 
 
 ReactDOM.render((
-    <Router history={withExampleBasename(browserHistory, browserHistory.getCurrentLocation().pathname)}>
+    <Router history={withExampleBasename(browserHistory, '/')}>
         <Route path="/" component={Home} />
         <Route path="/react_page" component={ReactPage} />
         <Route path="/form" component={Form} />
@@ -36,3 +36,5 @@ ReactDOM.render((
 ), document.getElementById('root'), function () {
 
 });
+
+browserHistory.push(browserHistory.getCurrentLocation().pathname);

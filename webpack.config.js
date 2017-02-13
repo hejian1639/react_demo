@@ -18,7 +18,7 @@ module.exports = {
         path: path.join(__dirname, "dist"),
         filename: "[name].js",
         libraryTarget: "umd",
-        publicPath: 'dist/'
+        publicPath: '/dist/'
     },
     module: {
         loaders: [
