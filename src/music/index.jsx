@@ -1,8 +1,7 @@
 import React from 'react'
 import './css/jplayer.blue.monday.css'
 import $ from 'jquery'
-import './jquery.jplayer'
-import './jquery.jplayer.swf'
+import 'jquery.jplayer'
 
 export default class Music extends React.Component {
 

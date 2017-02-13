@@ -87,6 +87,7 @@ module.exports = {
         'ReactRouter': 'ReactRouter',
         'History': 'History',
         'jmui': 'jmui',
+        'jquery.jplayer': 'jplayer/jquery.jplayer',
         'css!jmui.ios.core': 'css!jmui.ios.core',
         'css!fonts/iconfont': 'css!fonts/iconfont'
 
