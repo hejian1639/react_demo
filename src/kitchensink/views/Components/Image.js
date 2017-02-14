@@ -1,7 +1,5 @@
 import { Page, TransitionPages, Navbar, Block, Image, Row, Col } from 'jmui'
 import React, { Component, PropTypes } from 'react'
-import { browserHistory } from 'ReactRouter'
-
 
 export default class ImageView extends Component {
 
