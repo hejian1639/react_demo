@@ -5,7 +5,7 @@ import style from './style.css'
 import Header from 'header'
 
 
-export default class ReactPage extends React.Component {
+class ReactPage extends React.Component {
     constructor(props) {
         console.log('constructor');
         super(props)
@@ -53,5 +53,5 @@ export default class ReactPage extends React.Component {
     }
 }
 
-
+module.exports = ReactPage;
 

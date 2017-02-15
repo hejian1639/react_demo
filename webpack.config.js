@@ -5,11 +5,11 @@ module.exports = {
     entry: {
         main: "./src/main.jsx",
         home: "./src/home/index.jsx",
-        react_page: "./src/react_page/index.jsx",
+        'react-page': "./src/react_page/index.jsx",
         form: "./src/form.jsx",
         'active-links': "./src/active-links.jsx",
         'jmui-test': "./src/jmui-test.jsx",
-        'kitchensink': "./src/kitchensink/routes.js",
+        'kitchensink': "./src/kitchensink/routes.jsx",
         'animation': "./src/animation/index.jsx",
         'music': "./src/music/index.jsx",
         'header': "./src/header/index.jsx",
@@ -51,7 +51,7 @@ module.exports = {
         //  on the global var jQuery
         //  "jquery": "jQuery"
         'home': 'dist/home',
-        'react-page': 'dist/react_page',
+        'react-page': 'dist/react-page',
         'form': 'dist/form',
         'active-links': 'dist/active-links',
         'jmui-test': 'dist/jmui-test',
