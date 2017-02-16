@@ -5,13 +5,6 @@ import ReactDOM from 'react-dom'
 import { useBasename } from 'History'
 
 import { Router, Route, browserHistory } from 'ReactRouter'
-// import Home from 'home'
-// import ReactPage from 'react-page'
-// import Form from 'form'
-// import JMUI from 'jmui-test'
-// import Animation from 'animation'
-// import getRoutes from 'kitchensink'
-// import Music from 'music'
 import $ from 'jquery'
 import 'jquery.jplayer'
 
