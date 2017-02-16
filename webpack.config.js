@@ -1,4 +1,6 @@
 var path = require("path");
+var precss = require('precss'); // 实现类Sass的功能，变量，嵌套，mixins
+var autoprefixer = require('autoprefixer'); // 自动添加浏览器前缀
 
 module.exports = {
 
@@ -31,7 +33,7 @@ module.exports = {
                     presets: ['es2015', 'react', 'stage-0']
                 }
       },
-            { test: /\.css$/, loader: 'style-loader!css-loader?modules' },
+            { test: /\.css$/, loader: 'style-loader!css-loader?modules!postcss-loader' },
             { test: /\.less$/, loader: 'style-loader!css-loader' },
             { test: /\.woff(\?.*)?$/, loader: 'file?name=[name].[ext]' },
             { test: /\.woff2(\?.*)?$/, loader: 'file?name=[name].[ext]' },
@@ -45,6 +47,9 @@ module.exports = {
             { test: /\.m4a$/, loader: 'file?name=[name].[ext]' },
             { test: /\.ogg$/, loader: 'file?name=[name].[ext]' },
     ]
+    },
+    postcss: function() { // postcss 插件
+        return [precss, autoprefixer];
     },
     externals: [{
         // require("jquery") is external and available
