@@ -27,6 +27,14 @@ var childRoutes = [
             cb(null, grandChildRoutes);
         },
     },
+    {
+        path: '*',
+
+        getComponent(nextState, cb) {
+            cb(null, require('./views/NotFound').default);
+        }
+
+    },
 ];
 
 export { childRoutes };
