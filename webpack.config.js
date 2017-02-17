@@ -1,6 +1,7 @@
 var path = require("path");
 var precss = require('precss'); // 实现类Sass的功能，变量，嵌套，mixins
 var autoprefixer = require('autoprefixer'); // 自动添加浏览器前缀
+var ProgressBarPlugin = require('progress-bar-webpack-plugin');
 
 module.exports = {
 
@@ -96,5 +97,8 @@ module.exports = {
         'css!jmui.ios.core': 'css!jmui.ios.core',
         'css!fonts/iconfont': 'css!fonts/iconfont'
 
-    }]
+    }],
+    plugins: [
+        new ProgressBarPlugin()
+    ]
 };
