@@ -1,7 +1,8 @@
 import { Page, TransitionPages, Navbar, Block } from 'jmui'
 import React, { Component } from 'react'
+import 'css!jmui.ios.core'
 
-export default class Header extends Component {
+module.exports = class Header extends Component {
 
 
 
