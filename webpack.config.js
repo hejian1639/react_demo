@@ -3,6 +3,9 @@ var precss = require('precss'); // 实现类Sass的功能，变量，嵌套，mi
 var autoprefixer = require('autoprefixer'); // 自动添加浏览器前缀
 var ProgressBarPlugin = require('progress-bar-webpack-plugin');
 
+var baseLibUrl = '';
+var baseAppUrl = 'dist/';
+
 module.exports = {
 
     entry: {
@@ -21,7 +24,7 @@ module.exports = {
         path: path.join(__dirname, "dist"),
         filename: "[name].js",
         libraryTarget: "umd",
-        publicPath: '/dist/'
+        publicPath: baseAppUrl
     },
     module: {
         loaders: [
@@ -56,46 +59,46 @@ module.exports = {
         // require("jquery") is external and available
         //  on the global var jQuery
         //  "jquery": "jQuery"
-        'home': 'dist/home',
-        'react-page': 'dist/react-page',
-        'form': 'dist/form',
-        'active-links': 'dist/active-links',
-        'jmui-test': 'dist/jmui-test',
-        'kitchensink': 'dist/kitchensink',
-        'animation': 'dist/animation',
-        'music': 'dist/music',
-        'header': 'dist/header',
-        'jquery': 'jquery',
+        'home': baseAppUrl + 'home',
+        'react-page': baseAppUrl + 'react-page',
+        'form': baseAppUrl + 'form',
+        'active-links': baseAppUrl + 'active-links',
+        'jmui-test': baseAppUrl + 'jmui-test',
+        'kitchensink': baseAppUrl + 'kitchensink',
+        'animation': baseAppUrl + 'animation',
+        'music': baseAppUrl + 'music',
+        'header': baseAppUrl + 'header',
+        'jquery': baseLibUrl + 'jquery',
         'react': {
             root: 'React',
             commonjs2: 'react',
             commonjs: 'react',
-            amd: 'react'
+            amd: baseLibUrl + 'react'
         },
         'react-dom': {
             root: 'ReactDOM',
             commonjs2: 'react-dom',
             commonjs: 'react-dom',
-            amd: 'react-dom'
+            amd: baseLibUrl + 'react-dom'
         },
         'react-addons-css-transition-group': {
             root: 'ReactCSSTransitionGroup',
             commonjs2: 'react-addons-css-transition-group',
             commonjs: 'react-addons-css-transition-group',
-            amd: 'react-addons-css-transition-group'
+            amd: baseLibUrl + 'react-addons-css-transition-group'
         },
         'react-transition': {
             root: 'ReactTransition',
             commonjs2: 'react-transition',
             commonjs: 'react-transition',
-            amd: 'react-transition'
+            amd: baseLibUrl + 'react-transition'
         },
-        'ReactRouter': 'ReactRouter',
-        'History': 'History',
-        'jmui': 'jmui',
-        'jquery.jplayer': 'jplayer/jquery.jplayer',
-        'css!jmui.ios.core': 'css!jmui.ios.core',
-        'css!fonts/iconfont': 'css!fonts/iconfont'
+        'ReactRouter': baseLibUrl + 'ReactRouter',
+        'History': baseLibUrl + 'History',
+        'jmui': baseLibUrl + 'jmui',
+        'jquery.jplayer': baseLibUrl + 'jplayer/jquery.jplayer',
+        'css!jmui.ios.core': 'css!' + baseLibUrl + 'jmui.ios.core',
+        'css!fonts/iconfont': 'css!' + baseLibUrl + 'fonts/iconfont'
 
     }],
     plugins: [
