@@ -7,8 +7,8 @@ module.exports = class Music extends React.Component {
     componentDidMount() {
         $("#jquery_jplayer_1").jPlayer("setMedia", {
             title: "Bubble",
-            m4a: require("../asset/Miaow-07-Bubble.m4a"),
-            oga: require("../asset/Miaow-07-Bubble.ogg")
+            m4a: require("../assets/Miaow-07-Bubble.m4a"),
+            oga: require("../assets/Miaow-07-Bubble.ogg")
         });
         $("#jquery_jplayer_1").jPlayer("play");
 
