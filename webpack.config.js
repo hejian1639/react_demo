@@ -20,6 +20,7 @@ module.exports = {
         'animation': "./src/animation/index.jsx",
         'music': "./src/music/index.jsx",
         'header': "./src/header/index.jsx",
+        'starter-template': "./src/starter_template/index.jsx",
     },
     output: {
         path: path.join(__dirname, "dist"),
@@ -69,6 +70,7 @@ module.exports = {
         'animation': baseAppUrl + 'animation',
         'music': baseAppUrl + 'music',
         'header': baseAppUrl + 'header',
+        'starter-template': baseAppUrl + 'starter-template',
         'jquery': baseLibUrl + 'jquery',
         'react': {
             root: 'React',
@@ -99,7 +101,9 @@ module.exports = {
         'jmui': baseLibUrl + 'jmui',
         'jquery.jplayer': baseLibUrl + 'jplayer/jquery.jplayer',
         'css!jmui.ios.core': 'css!' + baseLibUrl + 'jmui.ios.core',
-        'css!fonts/iconfont': 'css!' + baseLibUrl + 'fonts/iconfont'
+        'css!fonts/iconfont': 'css!' + baseLibUrl + 'fonts/iconfont',
+        'css!bootstrap': 'css!' + baseLibUrl + 'bootstrap',
+        'css!bootstrap-theme': 'css!' + baseLibUrl + 'bootstrap-theme',
 
     }],
     plugins: [

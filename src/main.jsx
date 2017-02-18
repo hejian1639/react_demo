@@ -70,6 +70,14 @@ const rootRoute = {
             }
         },
         {
+            path: '/starter_template',
+            getComponent(nextState, cb) {
+                window.require(['dist/starter-template'], (StarterTemplate) => {
+                    cb(null, StarterTemplate);
+                });
+            }
+        },
+        {
             path: '/kitchensink',
 
             getChildRoutes(location, cb) {
