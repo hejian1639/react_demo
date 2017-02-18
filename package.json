@@ -38,6 +38,7 @@
     "progress-bar-webpack-plugin": "^1.9.3",
     "react": "15.x",
     "react-addons-css-transition-group": "15.x",
+    "react-bootstrap": "^0.30.7",
     "react-dom": "15.x",
     "react-router": "^2.0.0",
     "requirejs": "2.2.0",
