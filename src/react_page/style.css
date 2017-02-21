@@ -1,3 +1,9 @@
+:global(@font-face) {
+    font-family: myFirstFont;
+    src: url('./Sansation_Light.ttf'), url('./Sansation_Light.eot');
+    /* IE9+ */
+}
+
 @keyframes myfirst {
     from {
         background: red;
@@ -5,9 +11,4 @@
     to {
         background: yellow;
     }
-}
-
-.serif {
-    font-family: myFirstFont;
-    src: url('./Sansation_Light.ttf'), url('./Sansation_Light.eot');
 }

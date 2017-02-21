@@ -46,7 +46,7 @@ class ReactPage extends React.Component {
                 <Header />
                 <h1>Hello, React Page</h1>
                 <div style={rotateStyle}>你好。这是一个 div 元素。</div>
-                <div className={style.serif}>With CSS3, websites can finally use fonts other than the pre-selected "web-safe" fonts.</div>
+                <div style={{ fontFamily: 'myFirstFont' }}>With CSS3, websites can finally use fonts other than the pre-selected "web-safe" fonts.</div>
                 <Link to="/">Go back to Home</Link>
             </div>
         );
