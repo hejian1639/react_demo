@@ -3,11 +3,49 @@ import React from 'react'
 import { Link } from 'ReactRouter'
 
 
+function Wrapper({ children }) {
+    return children;
+}
 
+const NAV_LINKS = {
+    react_page: {
+        link: '/react_page',
+        title: 'Go to React Page'
+    },
+    'form': {
+        link: '/form',
+        title: 'Go to Form Page'
+    },
+    jmui: {
+        link: '/jmui',
+        title: 'Go to JMUI'
+    },
+    kitchensink: {
+        link: '/kitchensink',
+        title: 'Go to kitchensink'
+    },
+    animation: {
+        link: '/animation',
+        title: 'Go to Animation Page'
+    },
+    music: {
+        link: '/kitchensink',
+        title: 'Go to Music Page'
+    },
+    starter_template: {
+        link: '/starter_template',
+        title: 'Go to Starter Template Page'
+    },
+
+    bootstrap_react: {
+        link: '/bootstrap_react',
+        title: 'Go to React Bootstrap Page'
+    },
+};
 
 module.exports = React.createClass({
 
-    componentWillMount: function () { 
+    componentWillMount: function () {
         console.log('componentWillMount');
     },
 
@@ -126,16 +164,19 @@ module.exports = React.createClass({
         return (
 
             <div style={{ padding: '10px' }}>
-                <h1>Home</h1>
+                <Wrapper>
+                    <h1>Home</h1>
+                </Wrapper>
                 <ul role="nav">
-                    <li><Link to="/react_page">Go to React Page</Link></li>
-                    <li><Link to="/form">Go to Form Page</Link></li>
-                    <li><Link to="/jmui">Go to JMUI</Link></li>
-                    <li><Link to="/kitchensink">Go to kitchensink</Link></li>
-                    <li><Link to="/animation">Go to Animation Page</Link></li>
-                    <li><Link to="/music">Go to Music Page</Link></li>
-                    <li><Link to="/starter_template">Go to Starter Template Page</Link></li>
-                    <li><Link to="/bootstrap_react">Go to React Bootstrap Page</Link></li>
+                    {Object.entries(NAV_LINKS).map(([linkName, { link, title }]) => (
+                        <li key={linkName}>
+                            <Link to={link}>
+                                {title}
+                            </Link>
+                        </li>
+                    ))}
+
+
                 </ul>
 
             </div>
