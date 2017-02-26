@@ -78,6 +78,14 @@ const rootRoute = {
             }
         },
         {
+            path: '/bootstrap_react',
+            getComponent(nextState, cb) {
+                window.require(['dist/bootstrap-react'], (BootstrapReact) => {
+                    cb(null, BootstrapReact);
+                });
+            }
+        },
+        {
             path: '/kitchensink',
 
             getChildRoutes(location, cb) {

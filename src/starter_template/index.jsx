@@ -1,5 +1,6 @@
 
 import React from 'react'
+import 'bootstrap'
 
 import 'css!bootstrap'
 import 'css!bootstrap-theme'
@@ -11,9 +12,9 @@ module.exports = React.createClass({
         router: React.PropTypes.object.isRequired,
     },
 
-    handleClick: function (module) {
+    handleClick: function (path) {
         this.context.router.push({
-            pathname: '/',
+            pathname: path,
         })
     },
 
@@ -33,7 +34,7 @@ module.exports = React.createClass({
                         </div>
                         <div id="navbar" className="collapse navbar-collapse">
                             <ul className="nav navbar-nav">
-                                <li className="active"><a href="javascript:void(0)" onClick={this.handleClick}>Home</a></li>
+                                <li className="active"><a href="javascript:void(0)" onClick={this.handleClick.bind(this, '/')}>Home</a></li>
                                 <li><a href="javascript:void(0)">About</a></li>
                                 <li><a href="javascript:void(0)">Contact</a></li>
                             </ul>

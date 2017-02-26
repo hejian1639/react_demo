@@ -21,6 +21,8 @@ module.exports = {
         'music': "./src/music/index.jsx",
         'header': "./src/header/index.jsx",
         'starter-template': "./src/starter_template/index.jsx",
+        'bootstrap-react': "./src/bootstrap_react/index.jsx",
+
     },
     output: {
         path: path.join(__dirname, "dist"),
@@ -71,6 +73,7 @@ module.exports = {
         'music': baseAppUrl + 'music',
         'header': baseAppUrl + 'header',
         'starter-template': baseAppUrl + 'starter-template',
+        'bootstrap-react': baseAppUrl + 'bootstrap-react',
         'jquery': baseLibUrl + 'jquery',
         'react': {
             root: 'React',
@@ -102,8 +105,10 @@ module.exports = {
         'jquery.jplayer': baseLibUrl + 'jplayer/jquery.jplayer',
         'css!jmui.ios.core': 'css!' + baseLibUrl + 'jmui.ios.core',
         'css!fonts/iconfont': 'css!' + baseLibUrl + 'fonts/iconfont',
+        'bootstrap': baseLibUrl + 'bootstrap',
         'css!bootstrap': 'css!' + baseLibUrl + 'bootstrap',
         'css!bootstrap-theme': 'css!' + baseLibUrl + 'bootstrap-theme',
+        'react-bootstrap': baseLibUrl + 'react-bootstrap',
 
     }],
     plugins: [

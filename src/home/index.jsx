@@ -135,6 +135,7 @@ module.exports = React.createClass({
                     <li><Link to="/animation">Go to Animation Page</Link></li>
                     <li><Link to="/music">Go to Music Page</Link></li>
                     <li><Link to="/starter_template">Go to Starter Template Page</Link></li>
+                    <li><Link to="/bootstrap_react">Go to React Bootstrap Page</Link></li>
                 </ul>
 
             </div>
