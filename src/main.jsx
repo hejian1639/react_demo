@@ -86,6 +86,14 @@ const rootRoute = {
             }
         },
         {
+            path: '/bootstrap_popup*',
+            getComponent(nextState, cb) {
+                window.require(['dist/bootstrap-popup'], (BootstrapPopup) => {
+                    cb(null, BootstrapPopup);
+                });
+            }
+        },
+        {
             path: '/kitchensink',
 
             getChildRoutes(location, cb) {

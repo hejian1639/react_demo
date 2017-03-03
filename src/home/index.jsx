@@ -41,6 +41,11 @@ const NAV_LINKS = {
         link: '/bootstrap_react',
         title: 'Go to React Bootstrap Page'
     },
+
+    bootstrap_popup: {
+        link: '/bootstrap_popup',
+        title: 'Go to Bootstrap Popup Page'
+    },
 };
 
 module.exports = React.createClass({
