@@ -17,6 +17,12 @@ var grandChildRoutes = [
             cb(null, require('./views/Components/Pages').default);
         }
     },
+    {
+        path: 'accordion',
+        getComponent(nextState, cb) {
+            cb(null, require('./views/Components/Accordion').default);
+        }
+    },
 ];
 
 var childRoutes = [
