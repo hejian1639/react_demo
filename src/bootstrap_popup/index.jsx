@@ -6,10 +6,27 @@ import BootstrapButton from './button'
 import BootstrapModal from './modal'
 import { browserHistory } from 'ReactRouter'
 
+var unlisten;
 
 module.exports = React.createClass({
 
-   
+    componentWillMount() {
+        console.log('componentWillMount');
+
+        unlisten = browserHistory.listen((location, action) => {
+            // location is an object like window.location 
+            console.log(action, location.pathname, location.state);
+            if (!location.pathname.match(/dialog$/)) {
+                this.refs.modal.close();
+
+            }
+        })
+    },
+
+    componentWillUnmount() {
+        console.log('componentWillUnmount');
+        unlisten();
+    },
 
     openModal: function () {
         this.refs.modal.open();
@@ -17,6 +34,7 @@ module.exports = React.createClass({
         browserHistory.push(browserHistory.getCurrentLocation().pathname + '/dialog');
     },
     closeModal: function () {
+        browserHistory.goBack();
         this.refs.modal.close();
     },
     handleModalDidClose: function () {

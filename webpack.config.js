@@ -22,6 +22,7 @@ module.exports = {
         'header': "./src/header/index.jsx",
         'starter-template': "./src/starter_template/index.jsx",
         'bootstrap-react': "./src/bootstrap_react/index.jsx",
+        'bootstrap-popup': "./src/bootstrap_popup/index.jsx",
 
     },
     output: {
@@ -74,6 +75,7 @@ module.exports = {
         'header': baseAppUrl + 'header',
         'starter-template': baseAppUrl + 'starter-template',
         'bootstrap-react': baseAppUrl + 'bootstrap-react',
+        'bootstrap-popup': baseAppUrl + 'bootstrap-popup',
         'jquery': baseLibUrl + 'jquery',
         'react': {
             root: 'React',
