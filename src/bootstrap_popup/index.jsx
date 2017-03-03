@@ -16,7 +16,7 @@ module.exports = React.createClass({
         unlisten = browserHistory.listen((location, action) => {
             // location is an object like window.location 
             console.log(action, location.pathname, location.state);
-            if (!location.pathname.match(/dialog$/)) {
+            if ((!location.pathname.match(/dialog$/)) && this.refs.modal) {
                 this.refs.modal.close();
 
             }
