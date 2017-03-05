@@ -10,17 +10,27 @@ class ReactPage extends React.Component {
         console.log('constructor');
         super(props)
         this.state = {
-            degree: 0, hovered: false
+            degree: 0, hovered: false, text: 'loading'
         };
         this.timerId = null;
     }
 
-    componentDidMount() {
+    componentWillMount() {
         console.log('componentDidMount');
 
         this.timerId = setInterval(function () {
             this.setState({ degree: this.state.degree + 1 });
         }.bind(this), 50);
+
+        function timeout(ms) {
+            return new PromisePolyfill((resolve, reject) => {
+                setTimeout(resolve, ms, 'done');
+            });
+        }
+
+        timeout(1000).then((value) => {
+            this.setState({ text: value });
+        });
 
     }
 
@@ -47,6 +57,7 @@ class ReactPage extends React.Component {
                 <h1>Hello, React Page</h1>
                 <div style={rotateStyle}>你好。这是一个 div 元素。</div>
                 <div style={{ fontFamily: 'myFirstFont' }}>With CSS3, websites can finally use fonts other than the pre-selected "web-safe" fonts.</div>
+                <div >{this.state.text}</div>
                 <Link to="/">Go back to Home</Link>
             </div>
         );
