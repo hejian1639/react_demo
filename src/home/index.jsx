@@ -1,6 +1,9 @@
 
 import React from 'react'
 import { Link } from 'ReactRouter'
+import { Button } from 'react-bootstrap';
+import 'css!bootstrap'
+import 'css!bootstrap-theme'
 
 
 function Wrapper({ children }) {
@@ -42,10 +45,49 @@ const NAV_LINKS = {
         title: 'Go to React Bootstrap Page'
     },
 
+};
+
+const NAV_LINKS1 = {
     bootstrap_popup: {
         link: '/bootstrap_popup',
         title: 'Go to Bootstrap Popup Page'
     },
+
+    react_page: {
+        link: '/react_page',
+        title: 'Go to React Page'
+    },
+    'form': {
+        link: '/form',
+        title: 'Go to Form Page'
+    },
+    jmui: {
+        link: '/jmui',
+        title: 'Go to JMUI'
+    },
+    kitchensink: {
+        link: '/kitchensink',
+        title: 'Go to kitchensink'
+    },
+    animation: {
+        link: '/animation',
+        title: 'Go to Animation Page'
+    },
+    music: {
+        link: '/kitchensink',
+        title: 'Go to Music Page'
+    },
+    starter_template: {
+        link: '/starter_template',
+        title: 'Go to Starter Template Page'
+    },
+
+    bootstrap_react: {
+        link: '/bootstrap_react',
+        title: 'Go to React Bootstrap Page'
+    },
+
+
 };
 
 module.exports = React.createClass({
@@ -56,7 +98,7 @@ module.exports = React.createClass({
 
     getInitialState: function () {
         console.log('getInitialState');
-        return { degree: 0, hovered: false };
+        return { degree: 0, hovered: false, nav_links: NAV_LINKS };
     },
 
     timerId: null,
@@ -150,6 +192,9 @@ module.exports = React.createClass({
         this.setState({ hovered: false });
     },
 
+    refresh: function () {
+        this.setState({ nav_links: NAV_LINKS1 });
+    },
 
     render: function () {
         console.log('render');
@@ -169,11 +214,9 @@ module.exports = React.createClass({
         return (
 
             <div style={{ padding: '10px' }}>
-                <Wrapper>
-                    <h1>Home</h1>
-                </Wrapper>
+                <h1>Home</h1>
                 <ul role="nav">
-                    {Object.entries(NAV_LINKS).map(([linkName, { link, title }]) => (
+                    {Object.entries(this.state.nav_links).map(([linkName, { link, title }]) => (
                         <li key={linkName}>
                             <Link to={link}>
                                 {title}
@@ -183,7 +226,10 @@ module.exports = React.createClass({
 
 
                 </ul>
-
+                <Button bsStyle="primary"
+                    onClick={this.refresh}                >
+                    refresh
+        </Button>
             </div>
         );
     }
