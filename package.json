@@ -40,6 +40,7 @@
     "react-addons-css-transition-group": "15.x",
     "react-bootstrap": "^0.30.7",
     "react-dom": "15.x",
+    "react-redux": "^5.0.3",
     "react-router": "^2.0.0",
     "requirejs": "2.2.0",
     "run-sequence": "^1.2.2",
