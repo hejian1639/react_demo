@@ -2,7 +2,7 @@ import React from 'react'
 import './css/jplayer.blue.monday.css'
 import $ from 'jquery'
 
-module.exports = class Music extends React.Component {
+export default class Music extends React.Component {
 
     componentDidMount() {
         $("#jquery_jplayer_1").jPlayer("setMedia", {

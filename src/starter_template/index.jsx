@@ -7,7 +7,7 @@ import 'css!bootstrap-theme'
 
 
 
-module.exports = React.createClass({
+export default React.createClass({
     contextTypes: {
         router: React.PropTypes.object.isRequired,
     },

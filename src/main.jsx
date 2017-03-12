@@ -19,13 +19,13 @@ const rootRoute = {
     childRoutes: [
         {
             path: '/',
-            component: require('home'),
+            component: require('home').default,
         },
         {
             path: 'react_page',
             getComponent(nextState, cb) {
                 window.require(['dist/react-page'], (ReactPage) => {
-                    cb(null, ReactPage);
+                    cb(null, ReactPage.default);
                 });
             }
         },
@@ -33,7 +33,7 @@ const rootRoute = {
             path: '/form',
             getComponent(nextState, cb) {
                 window.require(['dist/form'], (Form) => {
-                    cb(null, Form);
+                    cb(null, Form.default);
                 });
             }
         },
@@ -41,7 +41,7 @@ const rootRoute = {
             path: '/jmui',
             getComponent(nextState, cb) {
                 window.require(['dist/jmui-test'], (JMUI) => {
-                    cb(null, JMUI);
+                    cb(null, JMUI.default);
                 });
             }
         },
@@ -49,7 +49,7 @@ const rootRoute = {
             path: '/animation',
             getComponent(nextState, cb) {
                 window.require(['dist/animation'], (Animation) => {
-                    cb(null, Animation);
+                    cb(null, Animation.default);
                 });
             }
         },
@@ -57,7 +57,7 @@ const rootRoute = {
             path: '/jmui',
             getComponent(nextState, cb) {
                 window.require(['dist/jmui-test'], (JMUI) => {
-                    cb(null, JMUI);
+                    cb(null, JMUI.default);
                 });
             }
         },
@@ -65,7 +65,7 @@ const rootRoute = {
             path: '/music',
             getComponent(nextState, cb) {
                 window.require(['dist/music'], (Music) => {
-                    cb(null, Music);
+                    cb(null, Music.default);
                 });
             }
         },
@@ -73,7 +73,7 @@ const rootRoute = {
             path: '/starter_template',
             getComponent(nextState, cb) {
                 window.require(['dist/starter-template'], (StarterTemplate) => {
-                    cb(null, StarterTemplate);
+                    cb(null, StarterTemplate.default);
                 });
             }
         },
@@ -81,7 +81,7 @@ const rootRoute = {
             path: '/bootstrap_react',
             getComponent(nextState, cb) {
                 window.require(['dist/bootstrap-react'], (BootstrapReact) => {
-                    cb(null, BootstrapReact);
+                    cb(null, BootstrapReact.default);
                 });
             }
         },
@@ -89,7 +89,7 @@ const rootRoute = {
             path: '/bootstrap_popup*',
             getComponent(nextState, cb) {
                 window.require(['dist/bootstrap-popup'], (BootstrapPopup) => {
-                    cb(null, BootstrapPopup);
+                    cb(null, BootstrapPopup.default);
                 });
             }
         },

@@ -32,7 +32,7 @@ const NAV_LINKS = {
         title: 'Go to Animation Page'
     },
     music: {
-        link: '/kitchensink',
+        link: '/music',
         title: 'Go to Music Page'
     },
     starter_template: {
@@ -74,7 +74,7 @@ const NAV_LINKS1 = {
         title: 'Go to Animation Page'
     },
     music: {
-        link: '/kitchensink',
+        link: '/music',
         title: 'Go to Music Page'
     },
     starter_template: {
@@ -90,7 +90,7 @@ const NAV_LINKS1 = {
 
 };
 
-module.exports = React.createClass({
+export default React.createClass({
 
     componentWillMount: function () {
         console.log('componentWillMount');

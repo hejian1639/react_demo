@@ -30,7 +30,7 @@ var footerStyle = {
   textAlign: 'center'
 };
 
-module.exports = React.createClass({
+export default React.createClass({
   handleClick: function (module) {
     window.require([module], function (App) {
       var app = new App();

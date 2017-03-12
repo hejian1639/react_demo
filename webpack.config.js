@@ -30,37 +30,46 @@ module.exports = {
         path: path.join(__dirname, "dist"),
         filename: "[name].js",
         libraryTarget: "umd",
-        publicPath: baseAppUrl
+        publicPath: '/dist/'
     },
     module: {
-        loaders: [
+        rules: [
             {
                 test: /\.(js|jsx)$/,
-                exclude: /node_modules/,
-                loader: 'babel',
-                query: {
-                    cacheDirectory: true,
-                    presets: ['es2015', 'react', 'stage-0']
+                use: 'babel-loader',
+
+            },
+            {
+                test: /\.(css|less)$/,
+                use: [
+                    'style-loader',
+                    'css-loader',
+                    { loader: 'postcss-loader', options: { plugins: () => [require('precss'), require('autoprefixer')] } }
+                ]
+            },
+            {
+                test: /\.(gif|png|jpg)$/,
+                use: {
+                    loader: 'url-loader',
+                    query: {
+                        limit: 8192,
+                        name: '[name].[ext]'
+                    },
                 }
-      },
-            { test: /\.css$/, loader: 'style-loader!css-loader?modules!postcss-loader' },
-            { test: /\.less$/, loader: 'style-loader!css-loader' },
-            { test: /\.woff(\?.*)?$/, loader: 'file?name=[name].[ext]' },
-            { test: /\.woff2(\?.*)?$/, loader: 'file?name=[name].[ext]' },
-            { test: /\.otf(\?.*)?$/, loader: 'file?name=[name].[ext]' },
-            { test: /\.ttf(\?.*)?$/, loader: 'file?name=[name].[ext]' },
-            { test: /\.eot(\?.*)?$/, loader: 'file?name=[name].[ext]' },
-            { test: /\.svg(\?.*)?$/, loader: 'file?name=[name].[ext]' },
-            { test: /\.(png|jpg)$/, loader: 'file?name=[name].[ext]' },
-            { test: /\.(gif)$/, loader: 'url-loader?limit=4096&name=[name].[ext]' },
-            { test: /\.swf$/, loader: 'file?name=[name].[ext]' },
-            { test: /\.m4a$/, loader: 'file?name=[name].[ext]' },
-            { test: /\.ogg$/, loader: 'file?name=[name].[ext]' },
-    ]
+            },
+            {
+                test: /\.(eot|ttf|svg|m4a|ogg)$/,
+                exclude: /node_modules/,
+                use: {
+                    loader: 'file-loader',
+                    query: {
+                        name: '[name].[ext]'
+                    },
+                },
+            },
+        ]
     },
-    postcss: function() { // postcss 插件
-        return [precss, autoprefixer];
-    },
+
     externals: [{
         // require("jquery") is external and available
         //  on the global var jQuery

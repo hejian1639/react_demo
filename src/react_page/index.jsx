@@ -64,5 +64,5 @@ class ReactPage extends React.Component {
     }
 }
 
-module.exports = ReactPage;
+export default ReactPage;
 

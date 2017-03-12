@@ -8,7 +8,7 @@ import { browserHistory } from 'ReactRouter'
 
 var unlisten;
 
-module.exports = React.createClass({
+export default React.createClass({
 
     componentWillMount() {
         console.log('componentWillMount');
