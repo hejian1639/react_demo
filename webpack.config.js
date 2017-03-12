@@ -7,7 +7,7 @@ var baseLibUrl = '';
 var baseAppUrl = 'dist/';
 
 module.exports = {
-    devtool: 'inline-source-map',
+    devtool: 'source-map',
 
     entry: {
         main: "./src/main.jsx",

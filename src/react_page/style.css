@@ -4,16 +4,9 @@
     /* IE9+ */
 }
 
-@keyframes myfirst {
-    from {
-        background: red;
-    }
-    to {
-        background: yellow;
-    }
+
+
+
+.title {
+    color: red;
 }
-
-
-    .title {
-      color: red;
-    }

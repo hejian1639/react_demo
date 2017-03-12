@@ -13,6 +13,7 @@ export default class Animation extends React.Component {
 
                     <h1>My Element...</h1>
                 </ReactCSSTransitionGroup>
+                <div style={{ background: 'red', width: '100px', height: '100px', animation: 'myfirst 5s' }}></div>
             </div>
         );
     }

@@ -6,3 +6,13 @@
    opacity: 1;
    transition: opacity 500ms ease-in;
 }
+
+
+@keyframes :global(myfirst) {
+    from {
+        background: red;
+    }
+    to {
+        background: yellow;
+    }
+}
