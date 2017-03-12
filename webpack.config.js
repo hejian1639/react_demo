@@ -23,6 +23,7 @@ module.exports = {
         'starter-template': "./src/starter_template/index.jsx",
         'bootstrap-react': "./src/bootstrap_react/index.jsx",
         'bootstrap-popup': "./src/bootstrap_popup/index.jsx",
+        'todos': "./src/todos/index.js",
 
     },
     output: {
@@ -101,6 +102,8 @@ module.exports = {
             commonjs: 'react-transition',
             amd: baseLibUrl + 'react-transition'
         },
+        'redux': baseLibUrl + 'redux',
+        'react-redux': baseLibUrl + 'react-redux',
         'ReactRouter': baseLibUrl + 'ReactRouter',
         'History': baseLibUrl + 'History',
         'jmui': baseLibUrl + 'jmui',
