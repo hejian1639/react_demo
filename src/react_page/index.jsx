@@ -54,10 +54,10 @@ class ReactPage extends React.Component {
         return (
             <div style={{ backgroundImage: 'url("' + require("../images/eg_bg_06.gif") + '")', padding: '10px' }}>
                 <Header />
-                <h1>Hello, React Page</h1>
+                <h1 className={style.title}>Hello, React Page</h1>
                 <div style={rotateStyle}>你好。这是一个 div 元素。</div>
                 <div style={{ fontFamily: 'myFirstFont' }}>With CSS3, websites can finally use fonts other than the pre-selected "web-safe" fonts.</div>
-                <div >{this.state.text}</div>
+                <div className={style.title}>{this.state.text}</div>
                 <Link to="/">Go back to Home</Link>
             </div>
         );

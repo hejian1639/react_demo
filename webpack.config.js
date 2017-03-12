@@ -35,15 +35,25 @@ module.exports = {
     module: {
         rules: [
             {
-                test: /\.(js|jsx)$/,
-                use: 'babel-loader',
-
+                test: /\.jsx?$/,
+                use: {
+                    loader: 'babel-loader',
+                    options: {
+                        cacheDirectory: true,
+                        presets: ['es2015', 'stage-0', 'react']
+                    }
+                }
             },
             {
                 test: /\.(css|less)$/,
                 use: [
                     'style-loader',
-                    'css-loader',
+                    {
+                        loader: 'css-loader',
+                        options: {
+                            modules: true,
+                        },
+                    },
                     { loader: 'postcss-loader', options: { plugins: () => [require('precss'), require('autoprefixer')] } }
                 ]
             },
@@ -51,18 +61,17 @@ module.exports = {
                 test: /\.(gif|png|jpg)$/,
                 use: {
                     loader: 'url-loader',
-                    query: {
-                        limit: 8192,
+                    options: {
+                        limit: 4096,
                         name: '[name].[ext]'
                     },
                 }
             },
             {
                 test: /\.(eot|ttf|svg|m4a|ogg)$/,
-                exclude: /node_modules/,
                 use: {
                     loader: 'file-loader',
-                    query: {
+                    options: {
                         name: '[name].[ext]'
                     },
                 },
