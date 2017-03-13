@@ -11,7 +11,7 @@ module.exports = {
 
     entry: {
         main: "./src/main.jsx",
-        home: "./src/home/index.jsx",
+        home: "./src/home",
         'react-page': "./src/react_page/index.jsx",
         form: "./src/form.jsx",
         'active-links': "./src/active-links.jsx",

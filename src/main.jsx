@@ -94,6 +94,14 @@ const rootRoute = {
             }
         },
         {
+            path: '/todos*',
+            getComponent(nextState, cb) {
+                window.require(['dist/todos'], (Todos) => {
+                    cb(null, Todos.default);
+                });
+            }
+        },
+        {
             path: '/kitchensink',
 
             getChildRoutes(location, cb) {
@@ -125,7 +133,7 @@ ReactDOM.render((
     <Router
         history={withExampleBasename(browserHistory, '/')}
         routes={rootRoute}
-        />
+    />
 ), document.getElementById('root'))
 
 // ReactDOM.render((

@@ -45,6 +45,11 @@ const NAV_LINKS = {
         title: 'Go to React Bootstrap Page'
     },
 
+    todos: {
+        link: '/todos',
+        title: 'Go to Todo list'
+    },
+
 };
 
 const NAV_LINKS1 = {
@@ -87,7 +92,10 @@ const NAV_LINKS1 = {
         title: 'Go to React Bootstrap Page'
     },
 
-
+    todos: {
+        link: '/todos',
+        title: 'Go to Todo list'
+    },
 };
 
 export default React.createClass({

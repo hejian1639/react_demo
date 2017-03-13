@@ -7,7 +7,7 @@ import reducer from './reducers'
 
 const store = createStore(reducer)
 
-class Todos extends React.Component {
+export default class Todos extends React.Component {
 
     render() {
         return (
