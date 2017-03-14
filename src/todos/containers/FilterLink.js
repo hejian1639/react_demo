@@ -1,20 +1,38 @@
 import { connect } from 'react-redux'
-import { setVisibilityFilter } from '../actions'
-import Link from '../components/Link'
+import React, { PropTypes } from 'react'
 
-const mapStateToProps = (state, ownProps) => ({
-  active: ownProps.filter === state.visibilityFilter
+
+const Link = ({ state, children, dispatch, filter }) => {
+    if (filter === state.visibilityFilter) {
+        return <span>{children}</span>
+    }
+
+    return (
+        <a href="#"
+            onClick={e => {
+                e.preventDefault();
+                dispatch((filter) => ({
+                    type: 'SET_VISIBILITY_FILTER',
+                    filter
+                }));
+            }}
+        >
+            {children}
+        </a>
+    )
+}
+
+Link.propTypes = {
+    children: PropTypes.node.isRequired,
+}
+
+const mapStateToProps = (state) => ({
+    state
 })
 
-const mapDispatchToProps = (dispatch, ownProps) => ({
-  onClick: () => {
-    dispatch(setVisibilityFilter(ownProps.filter))
-  }
-})
 
 const FilterLink = connect(
-  mapStateToProps,
-  mapDispatchToProps
+    mapStateToProps
 )(Link)
 
 export default FilterLink
