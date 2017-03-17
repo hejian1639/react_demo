@@ -48,10 +48,20 @@ const visibilityFilter = (state = 'SHOW_ALL', action) => {
   }
 }
 
+const text = (state = 'no data', action) => {
+  switch (action.type) {
+    case 'SET_TEXT':
+      return action.text
+    default:
+      return state
+  }
+}
+
 
 const todoApp = combineReducers({
   todos,
-  visibilityFilter
+  visibilityFilter,
+  text
 })
 
 export default todoApp
