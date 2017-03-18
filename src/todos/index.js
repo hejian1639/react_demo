@@ -6,11 +6,9 @@ import { Button } from 'react-bootstrap';
 import 'css!bootstrap'
 import 'css!bootstrap-theme'
 import { connect } from 'react-redux'
+import * as Actions from '../actions'
 
-const setText = (text) => ({
-    type: 'SET_TEXT',
-    text
-})
+
 
 class Todos extends React.Component {
 
@@ -26,7 +24,7 @@ class Todos extends React.Component {
                 <Button bsStyle="primary"
                     onClick={e => {
                         e.preventDefault();
-                        this.props.dispatch(setText('hello'));
+                        this.props.dispatch(Actions.setText('hello'));
                     }}>
                     refresh
                 </Button>
