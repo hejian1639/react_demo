@@ -1,5 +1,6 @@
 import { connect } from 'react-redux'
 import React, { PropTypes } from 'react'
+import * as Actions from '../../actions'
 
 const toggleTodo = (id) => ({
   type: 'TOGGLE_TODO',
@@ -62,7 +63,7 @@ const mapStateToProps = (state) => ({
 })
 
 const mapDispatchToProps = {
-  onTodoClick: toggleTodo
+  onTodoClick: Actions.toggleTodo
 }
 
 const VisibleTodoList = connect(

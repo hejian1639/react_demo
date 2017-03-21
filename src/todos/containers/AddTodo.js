@@ -1,12 +1,8 @@
 import React from 'react'
 import { connect } from 'react-redux'
+import * as Actions from '../../actions'
 
-let nextTodoId = 0
-const addTodo = (text) => ({
-  type: 'ADD_TODO',
-  id: nextTodoId++,
-  text
-})
+
 
 let AddTodo = ({ dispatch }) => {
   let input
@@ -18,7 +14,7 @@ let AddTodo = ({ dispatch }) => {
         if (!input.value.trim()) {
           return
         }
-        dispatch(addTodo(input.value))
+        dispatch(Actions.addTodo(input.value))
         input.value = ''
       }}>
         <input ref={node => {

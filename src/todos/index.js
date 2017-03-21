@@ -13,12 +13,13 @@ import * as Actions from '../actions'
 class Todos extends React.Component {
 
     render() {
+        const { text } = this.props;
         return (
             <div>
                 <AddTodo />
                 <VisibleTodoList />
                 <Footer />
-                {this.props.text}
+                {text}
                 <br />
                 <br />
                 <Button bsStyle="primary"
@@ -34,7 +35,7 @@ class Todos extends React.Component {
 }
 
 const mapStateToProps = (state) => ({
-  text: state.text
+    text: state.text
 })
 
 Todos = connect(mapStateToProps)(Todos)

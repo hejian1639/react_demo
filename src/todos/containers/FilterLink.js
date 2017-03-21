@@ -1,10 +1,8 @@
 import { connect } from 'react-redux'
 import React, { PropTypes } from 'react'
+import * as Actions from '../../actions'
 
-const setVisibilityFilter = (filter) => ({
-  type: 'SET_VISIBILITY_FILTER',
-  filter
-})
+
 
 const Link = ({ state, children, dispatch, filter }) => {
     if (filter === state.visibilityFilter) {
@@ -15,9 +13,8 @@ const Link = ({ state, children, dispatch, filter }) => {
         <a href="#"
             onClick={e => {
                 e.preventDefault();
-                dispatch(setVisibilityFilter(filter));
-            }}
-        >
+                dispatch(Actions.setVisibilityFilter(filter));
+            }}        >
             {children}
         </a>
     )
