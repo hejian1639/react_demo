@@ -2,10 +2,6 @@ import { connect } from 'react-redux'
 import React, { PropTypes } from 'react'
 import * as Actions from '../../actions'
 
-const toggleTodo = (id) => ({
-  type: 'TOGGLE_TODO',
-  id
-})
 
 const Todo = ({ onClick, completed, text }) => (
   <li
@@ -24,13 +20,13 @@ Todo.propTypes = {
   text: PropTypes.string.isRequired
 }
 
-const TodoList = ({ todos, onTodoClick }) => (
+const TodoList = ({ todos, dispatch }) => (
   <ul>
     {todos.map(todo =>
       <Todo
         key={todo.id}
         {...todo}
-        onClick={() => onTodoClick(todo.id)}
+        onClick={() => dispatch(Actions.toggleTodo(todo.id))}
       />
     )}
   </ul>
@@ -41,8 +37,7 @@ TodoList.propTypes = {
     id: PropTypes.number.isRequired,
     completed: PropTypes.bool.isRequired,
     text: PropTypes.string.isRequired
-  }).isRequired).isRequired,
-  onTodoClick: PropTypes.func.isRequired
+  }).isRequired).isRequired
 }
 
 const getVisibleTodos = (todos, filter) => {
@@ -62,13 +57,9 @@ const mapStateToProps = (state) => ({
   todos: getVisibleTodos(state.todos, state.visibilityFilter)
 })
 
-const mapDispatchToProps = {
-  onTodoClick: Actions.toggleTodo
-}
 
 const VisibleTodoList = connect(
-  mapStateToProps,
-  mapDispatchToProps
+  mapStateToProps
 )(TodoList)
 
 export default VisibleTodoList

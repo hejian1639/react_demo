@@ -19,6 +19,8 @@ class Todos extends React.Component {
                 <AddTodo />
                 <VisibleTodoList />
                 <Footer />
+                <VisibleTodoList />
+                <Footer />
                 {text}
                 <br />
                 <br />

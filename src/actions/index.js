@@ -8,3 +8,6 @@ export const completeAll = () => ({ type: types.COMPLETE_ALL })
 export const clearCompleted = () => ({ type: types.CLEAR_COMPLETED })
 
 export const setText = text => ({ type: types.SET_TEXT, text })
+
+export const setVisibilityFilter = filter => ({ type: types.SET_VISIBILITY_FILTER, filter })
+export const toggleTodo = id => ({ type: types.TOGGLE_TODO, id })
