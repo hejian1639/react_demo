@@ -4,8 +4,8 @@ import * as Actions from '../../actions'
 
 
 
-const Link = ({ state, children, dispatch, filter }) => {
-    if (filter === state.visibilityFilter) {
+const Link = ({ visibilityFilter, children, dispatch, id, filter }) => {
+    if (filter === visibilityFilter[id]) {
         return <span>{children}</span>
     }
 
@@ -13,7 +13,7 @@ const Link = ({ state, children, dispatch, filter }) => {
         <a href="#"
             onClick={e => {
                 e.preventDefault();
-                dispatch(Actions.setVisibilityFilter(filter));
+                dispatch(Actions.setVisibilityFilter(id, filter));
             }}        >
             {children}
         </a>
@@ -25,7 +25,7 @@ Link.propTypes = {
 }
 
 const mapStateToProps = (state) => ({
-    state
+    visibilityFilter: state.visibilityFilter
 })
 
 

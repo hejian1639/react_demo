@@ -41,12 +41,13 @@ const todos = (state = [], action) => {
     }
 }
 
-const visibilityFilter = (state = 'SHOW_ALL', action) => {
+const visibilityFilter = (state = {}, action) => {
     switch (action.type) {
         case types.SET_VISIBILITY_FILTER:
-            return action.filter
+            state[action.id] = action.filter;
+            return {...state};
         default:
-            return state
+            return state;
     }
 }
 

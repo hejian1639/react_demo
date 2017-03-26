@@ -11,23 +11,28 @@ import * as Actions from '../actions'
 
 
 class Todos extends React.Component {
+    componentWillMount() {
+        const { text, dispatch } = this.props;
+        dispatch(Actions.setVisibilityFilter('1', 'SHOW_ALL'));
+        dispatch(Actions.setVisibilityFilter('2', 'SHOW_ALL'));
+    }
 
     render() {
-        const { text } = this.props;
+        const { text, dispatch } = this.props;
         return (
             <div>
                 <AddTodo />
-                <VisibleTodoList />
-                <Footer />
-                <VisibleTodoList />
-                <Footer />
+                <VisibleTodoList id='1' />
+                <Footer id='1' />
+                <VisibleTodoList id='2' />
+                <Footer id='2' />
                 {text}
                 <br />
                 <br />
                 <Button bsStyle="primary"
                     onClick={e => {
                         e.preventDefault();
-                        this.props.dispatch(Actions.setText('hello'));
+                        dispatch(Actions.setText('hello'));
                     }}>
                     refresh
                 </Button>
