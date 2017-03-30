@@ -10,6 +10,7 @@ import 'jquery.jplayer'
 import { createStore } from 'redux'
 import { Provider } from 'react-redux'
 import reducer from './reducers'
+import Controller from './controller'
 
 
 
@@ -133,6 +134,8 @@ const rootRoute = {
 
 const store = createStore(reducer)
 
+var controller = new Controller(store);
+
 ReactDOM.render((
     <Provider store={store}>
         <Router history={withExampleBasename(browserHistory, '/')}>
@@ -182,9 +185,7 @@ ReactDOM.render((
                 });
             }} />
             <Route path="/todos*" getComponent={(nextState, cb) => {
-                window.require(['dist/todos'], (Todos) => {
-                    cb(null, Todos.default);
-                });
+                controller.openTodos(cb);
             }} />
             <Route path="/kitchensink" getComponent={(nextState, cb) => {
                 window.require(['dist/kitchensink'], (Kitchensink) => {

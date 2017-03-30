@@ -11,11 +11,7 @@ import * as Actions from '../actions'
 
 
 class Todos extends React.Component {
-    componentWillMount() {
-        const { text, dispatch } = this.props;
-        dispatch(Actions.setVisibilityFilter('1', 'SHOW_ALL'));
-        dispatch(Actions.setVisibilityFilter('2', 'SHOW_ALL'));
-    }
+    
 
     render() {
         const { text, dispatch } = this.props;
