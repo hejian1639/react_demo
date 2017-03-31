@@ -25,16 +25,35 @@ const todo = (state, action) => {
     }
 }
 
+class Todo {
+    constructor(text) {
+        this.id = Todo.nextTodoId++;
+        this.text = text;
+        this.completed = false;
+    }
+
+    toggle() {
+        this.completed = !this.completed;
+    }
+}
+
+Todo.nextTodoId = 0;
+
+
 const todos = (state = [], action) => {
     switch (action.type) {
         case types.ADD_TODO:
             return [
                 ...state,
-                todo(undefined, action)
+                new Todo(action.text)
             ]
         case types.TOGGLE_TODO:
-            return state.map(t =>
-                todo(t, action)
+            return state.map(t => {
+                if (action.id == t.id) {
+                    t.toggle();
+                }
+                return t;
+            }
             )
         default:
             return state
@@ -45,7 +64,7 @@ const visibilityFilter = (state = {}, action) => {
     switch (action.type) {
         case types.SET_VISIBILITY_FILTER:
             state[action.id] = action.filter;
-            return {...state};
+            return { ...state };
         default:
             return state;
     }
