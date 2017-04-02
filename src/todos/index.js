@@ -10,16 +10,24 @@ import * as Actions from '../actions'
 import { createStore, combineReducers } from 'redux'
 import { Provider } from 'react-redux'
 import * as types from '../constants/ActionTypes'
+import * as FilterTypes from '../constants/TodoFilters'
 
-var App = ({ dispatch, text }) => {
+var App = ({ dispatch, text, visibilityFilter }) => {
+
 
     return (
         <div>
             <AddTodo />
-            <VisibleTodoList id='1' />
-            <Footer id='1' />
-            <VisibleTodoList id='2' />
-            <Footer id='2' />
+            <ul>
+            {Object.keys(visibilityFilter).map(key => 
+                (
+                    <li key={key}>
+                        <VisibleTodoList id={key} />
+                        <Footer id={key} />
+                    </li>
+                )
+            )}
+            </ul>
             {text}
             <br />
             <br />
@@ -36,7 +44,8 @@ var App = ({ dispatch, text }) => {
 }
 
 const mapStateToProps = (state) => ({
-    text: state.text
+    text: state.text,
+    visibilityFilter: state.visibilityFilter
 })
 
 App = connect(mapStateToProps)(App)
@@ -96,8 +105,8 @@ class Todos extends React.Component {
             text
         })
         this.store = createStore(reducer);
-        this.store.dispatch(Actions.setVisibilityFilter('1', 'SHOW_ALL'));
-        this.store.dispatch(Actions.setVisibilityFilter('2', 'SHOW_ALL'));
+        this.store.dispatch(Actions.setVisibilityFilter('1', FilterTypes.SHOW_ACTIVE));
+        this.store.dispatch(Actions.setVisibilityFilter('2', FilterTypes.SHOW_COMPLETED));
     }
 
 

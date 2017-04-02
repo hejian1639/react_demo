@@ -1,6 +1,7 @@
 import { connect } from 'react-redux'
 import React, { PropTypes } from 'react'
 import * as Actions from '../../actions'
+import * as FilterTypes from '../../constants/TodoFilters'
 
 
 const Todo = ({ onClick, completed, text }) => (
@@ -42,11 +43,11 @@ TodoList.propTypes = {
 
 const getVisibleTodos = (todos, filter) => {
   switch (filter) {
-    case 'SHOW_ALL':
+    case FilterTypes.SHOW_ALL:
       return todos
-    case 'SHOW_COMPLETED':
+    case FilterTypes.SHOW_COMPLETED:
       return todos.filter(t => t.completed)
-    case 'SHOW_ACTIVE':
+    case FilterTypes.SHOW_ACTIVE:
       return todos.filter(t => !t.completed)
     default:
       throw new Error('Unknown filter: ' + filter)
