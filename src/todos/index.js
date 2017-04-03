@@ -72,7 +72,7 @@ const todosProxy = (store, state = [], action) => {
 
 }
 
-const visibilityFilter = (state = {}, action) => {
+const visibilityFilter = (state = {'1': FilterTypes.SHOW_ACTIVE, '2': FilterTypes.SHOW_COMPLETED, '3': FilterTypes.SHOW_ALL}, action) => {
     switch (action.type) {
         case types.SET_VISIBILITY_FILTER:
             state[action.id] = action.filter;
@@ -105,8 +105,6 @@ class Todos extends React.Component {
             text
         })
         this.store = createStore(reducer);
-        this.store.dispatch(Actions.setVisibilityFilter('1', FilterTypes.SHOW_ACTIVE));
-        this.store.dispatch(Actions.setVisibilityFilter('2', FilterTypes.SHOW_COMPLETED));
     }
 
 
