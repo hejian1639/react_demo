@@ -66,10 +66,20 @@ class Todo {
 Todo.nextTodoId = 0;
 
 
-const todosProxy = (store, state = [], action) => {
+const todosProxy = (store, state, action) => {
     store.dispatch(action);
     return store.getState().todos;
 
+}
+
+function proxyFactory(store, id){
+    const proxy = (state, action) => {
+        store.dispatch(action);
+        return store.getState()[id];
+
+    }
+
+    return proxy;
 }
 
 const visibilityFilter = (state = {'1': FilterTypes.SHOW_ACTIVE, '2': FilterTypes.SHOW_COMPLETED, '3': FilterTypes.SHOW_ALL}, action) => {
@@ -98,7 +108,7 @@ class Todos extends React.Component {
 
 
     componentWillMount() {
-        const todos = todosProxy.bind(null, this.props.store);
+        const todos = proxyFactory(this.props.store, 'todos');
         const reducer = combineReducers({
             todos,
             visibilityFilter,
