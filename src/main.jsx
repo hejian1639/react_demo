@@ -59,26 +59,25 @@ ReactDOM.render((
                     cb(null, StarterTemplate.default);
                 });
             }} />
-
             <Route path="/bootstrap_react" getComponent={(nextState, cb) => {
                 window.require(['dist/bootstrap-react'], (BootstrapReact) => {
                     cb(null, BootstrapReact.default);
                 });
             }} />
-
             <Route path="/bootstrap_popup*" getComponent={(nextState, cb) => {
                 window.require(['dist/bootstrap-popup'], (BootstrapPopup) => {
                     cb(null, BootstrapPopup.default);
                 });
             }} />
             <Route path="/todos*" getComponent={(nextState, cb) => {
-
-                store.dispatch(Actions.setVisibilityFilter('1', 'SHOW_ALL'));
-                store.dispatch(Actions.setVisibilityFilter('2', 'SHOW_ALL'));
                 window.require(['dist/todos'], (Todos) => {
                     cb(null, props => <Todos.default {...props} store={store} />);
                 });
-
+            }} />
+            <Route path="/mobx_todos*" getComponent={(nextState, cb) => {
+                window.require(['dist/mobx-todos'], (MobXTodo) => {
+                    cb(null, MobXTodo.default);
+                });
             }} />
             <Route path="/kitchensink" getComponent={(nextState, cb) => {
                 window.require(['dist/kitchensink'], (Kitchensink) => {

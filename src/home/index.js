@@ -96,6 +96,10 @@ const NAV_LINKS1 = {
         link: '/todos',
         title: 'Go to Todo list'
     },
+    mobx_todos: {
+        link: '/mobx_todos',
+        title: 'Go to MobX Todo list'
+    },
 };
 
 export default React.createClass({

@@ -24,6 +24,7 @@ module.exports = {
         'bootstrap-react': "./src/bootstrap_react",
         'bootstrap-popup': "./src/bootstrap_popup",
         'todos': "./src/todos",
+        'mobx-todos': "./src/mobx",
 
     },
     output: {
@@ -40,7 +41,8 @@ module.exports = {
                     loader: 'babel-loader',
                     options: {
                         cacheDirectory: true,
-                        presets: ['es2015', 'stage-0', 'react']
+                        presets: ['es2015', 'stage-0', 'react'],
+                        plugins: ["transform-decorators-legacy"]
                     }
                 }
             },
@@ -95,6 +97,7 @@ module.exports = {
         'starter-template': baseAppUrl + 'starter-template',
         'bootstrap-react': baseAppUrl + 'bootstrap-react',
         'bootstrap-popup': baseAppUrl + 'bootstrap-popup',
+        'mobx-todos': baseAppUrl + 'mobx-todos',
         'jquery': baseLibUrl + 'jquery',
         'react': {
             root: 'React',
@@ -132,6 +135,10 @@ module.exports = {
         'css!bootstrap': 'css!' + baseLibUrl + 'bootstrap',
         'css!bootstrap-theme': 'css!' + baseLibUrl + 'bootstrap-theme',
         'react-bootstrap': baseLibUrl + 'react-bootstrap',
+        'css!todomvc-app-css': 'css!' + baseLibUrl + 'todomvc-app-css/index.css',
+        'css!todomvc-common': 'css!' + baseLibUrl + 'todomvc-common/base.css',
+        'mobx': baseLibUrl + 'mobx',
+        'mobx-react': baseLibUrl + 'mobx-react/index',
 
     }],
     plugins: [
