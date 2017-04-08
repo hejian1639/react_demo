@@ -6,7 +6,7 @@ import TodoOverview from './todoOverview';
 import TodoFooter from './todoFooter';
 import { ALL_TODOS, ACTIVE_TODOS, COMPLETED_TODOS } from '../constants';
 
-// import DevTool from 'mobx-react-devtools';
+import DevTool from 'mobx-react-devtools';
 
 @observer
 export default class TodoApp extends React.Component {
@@ -14,6 +14,7 @@ export default class TodoApp extends React.Component {
 		const { todoStore, viewStore } = this.props;
 		return (
 			<div>
+				<DevTool />
 				<header className="header">
 					<h1>todos</h1>
 					<TodoEntry todoStore={todoStore} />
