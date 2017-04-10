@@ -1,9 +1,26 @@
 
 import React from 'react'
 import { Link } from 'ReactRouter'
-import { Button } from 'react-bootstrap';
+import { Button, DropdownButton, MenuItem } from 'react-bootstrap';
 import 'css!bootstrap'
 import 'css!bootstrap-theme'
+import { IntlProvider, FormattedMessage } from 'react-intl';
+
+const zh_CN = {
+    home: "家",
+    chinese: "中文",
+    english: "英文",
+    language: "语言",
+    refresh: "刷新",
+}
+
+const en_US = {
+    home: "Home",
+    chinese: "Chinese",
+    english: "English",
+    language: "Language",
+    refresh: "Refresh",
+}
 
 
 function Wrapper({ children }) {
@@ -110,7 +127,7 @@ export default React.createClass({
 
     getInitialState: function () {
         console.log('getInitialState');
-        return { degree: 0, hovered: false, nav_links: NAV_LINKS };
+        return { degree: 0, hovered: false, nav_links: NAV_LINKS, lang: en_US };
     },
 
     timerId: null,
@@ -208,6 +225,9 @@ export default React.createClass({
         this.setState({ nav_links: NAV_LINKS1 });
     },
 
+    switchLanguage: function (lang) {
+    },
+
     render: function () {
         console.log('render');
 
@@ -225,24 +245,43 @@ export default React.createClass({
 
         return (
 
-            <div style={{ padding: '10px' }}>
-                <h1>Home</h1>
-                <ul role="nav">
-                    {Object.entries(this.state.nav_links).map(([linkName, { link, title }]) => (
-                        <li key={linkName}>
-                            <Link to={link}>
-                                {title}
-                            </Link>
-                        </li>
-                    ))}
+            <IntlProvider locale={'en'} messages={this.state.lang}>
+                <div style={{ padding: '10px' }}>
+                    <h1>
+                        <FormattedMessage id="home" />
+                    </h1>
+
+                    <DropdownButton bsStyle='primary' title={this.state.lang.language} id={`dropdown-basic`}>
+                        <MenuItem eventKey="1" onClick={() => {this.setState({lang: zh_CN})}}>
+                        <FormattedMessage
+                            id="chinese"
+                            defaultMessage={'Chinese'}/>
+                        </MenuItem>
+                        <MenuItem eventKey="2" onClick={() => {this.setState({lang: en_US})}}>
+                        <FormattedMessage
+                            id="english"
+                            defaultMessage={'English'}/>
+                        </MenuItem>
+                    </DropdownButton>
+                    <br />
+                    <br />
+                    <ul role="nav">
+                        {Object.entries(this.state.nav_links).map(([linkName, { link, title }]) => (
+                            <li key={linkName}>
+                                <Link to={link}>
+                                    {title}
+                                </Link>
+                            </li>
+                        ))}
 
 
-                </ul>
-                <Button bsStyle="primary"
-                    onClick={this.refresh}                >
-                    refresh
-        </Button>
-            </div>
+                    </ul>
+                    <Button bsStyle="primary"
+                        onClick={this.refresh}>
+                        <FormattedMessage id="refresh" />
+                    </Button>
+                </div>
+            </IntlProvider>
         );
     }
 });

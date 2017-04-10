@@ -137,8 +137,11 @@ module.exports = {
         'react-bootstrap': baseLibUrl + 'react-bootstrap',
         'css!todomvc-app-css': 'css!' + baseLibUrl + 'todomvc-app-css/index.css',
         'css!todomvc-common': 'css!' + baseLibUrl + 'todomvc-common/base.css',
+        'todomvc-common': baseLibUrl + 'todomvc-common/base',
         'mobx': baseLibUrl + 'mobx',
         'mobx-react': baseLibUrl + 'mobx-react/index',
+        'mobx-react-devtools': baseLibUrl + 'mobx-react-devtools/index',
+        'react-intl': baseLibUrl + 'react-intl',
 
     }],
     plugins: [

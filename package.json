@@ -4,7 +4,7 @@
   "description": "node modules",
   "author": "John He",
   "scripts": {
-    "start": "babel-node"
+    "start": "node server.js"
   },
   "dependencies": {
     "almond": "0.3.2",
@@ -40,6 +40,7 @@
     "react-addons-css-transition-group": "15.x",
     "react-bootstrap": "^0.30.7",
     "react-dom": "15.x",
+    "react-intl": "2.1.5",
     "react-redux": "^5.0.3",
     "react-router": "^2.0.0",
     "redux": "^3.6.0",
