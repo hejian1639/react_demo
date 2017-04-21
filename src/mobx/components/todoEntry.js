@@ -1,6 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import {observer} from 'mobx-react';
+import $ from 'jquery'
 
 const ENTER_KEY = 13;
 
@@ -23,11 +24,11 @@ export default class TodoEntry extends React.Component {
 
 		event.preventDefault();
 
-		var val = ReactDOM.findDOMNode(this.refs.newField).value.trim();
+		var val = $(this.refs.newField).val().trim();
 
 		if (val) {
 			this.props.todoStore.addTodo(val);
-			ReactDOM.findDOMNode(this.refs.newField).value = '';
+			$(this.refs.newField).val('');
 		}
 	};
 }

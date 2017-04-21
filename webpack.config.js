@@ -125,7 +125,7 @@ module.exports = {
         },
         'redux': baseLibUrl + 'redux',
         'react-redux': baseLibUrl + 'react-redux',
-        'ReactRouter': baseLibUrl + 'ReactRouter',
+        'react-router': baseLibUrl + 'ReactRouter',
         'History': baseLibUrl + 'History',
         'jmui': baseLibUrl + 'jmui',
         'jquery.jplayer': baseLibUrl + 'jplayer/jquery.jplayer',

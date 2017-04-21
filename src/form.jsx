@@ -1,7 +1,7 @@
 
 import React from 'react'
 import ReactDOM from 'react-dom'
-import { Link } from 'ReactRouter'
+import { Link } from 'react-router'
 
 
 var containerStyle = { width: '500px' };

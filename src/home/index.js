@@ -1,6 +1,6 @@
 
 import React from 'react'
-import { Link } from 'ReactRouter'
+import { Link } from 'react-router'
 import { Button, DropdownButton, MenuItem } from 'react-bootstrap';
 import 'css!bootstrap'
 import 'css!bootstrap-theme'
@@ -121,6 +121,11 @@ const NAV_LINKS1 = {
 
 export default React.createClass({
 
+    componentWillReceiveProps: function (nextProps) {
+        console.log('componentWillReceiveProps: ', nextProps);
+
+    },
+
     componentWillMount: function () {
         console.log('componentWillMount');
     },
@@ -225,8 +230,6 @@ export default React.createClass({
         this.setState({ nav_links: NAV_LINKS1 });
     },
 
-    switchLanguage: function (lang) {
-    },
 
     render: function () {
         console.log('render');
@@ -251,13 +254,16 @@ export default React.createClass({
                         <FormattedMessage id="home" />
                     </h1>
 
+                    <h2>
+                        {this.props.subtitle}
+                    </h2>
                     <DropdownButton bsStyle='primary' title={this.state.lang.language} id={`dropdown-basic`}>
-                        <MenuItem eventKey="1" onClick={() => {this.setState({lang: zh_CN})}}>
+                        <MenuItem onClick={() => {this.setState({lang: zh_CN})}}>
                         <FormattedMessage
                             id="chinese"
                             defaultMessage={'Chinese'}/>
                         </MenuItem>
-                        <MenuItem eventKey="2" onClick={() => {this.setState({lang: en_US})}}>
+                        <MenuItem onClick={() => {this.setState({lang: en_US})}}>
                         <FormattedMessage
                             id="english"
                             defaultMessage={'English'}/>
@@ -276,7 +282,7 @@ export default React.createClass({
 
 
                     </ul>
-                    <Button bsStyle="primary"
+                    <Button ref="refresh" bsStyle="primary"
                         onClick={this.refresh}>
                         <FormattedMessage id="refresh" />
                     </Button>

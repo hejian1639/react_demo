@@ -4,7 +4,7 @@ import 'css!bootstrap'
 import 'css!bootstrap-theme'
 import BootstrapButton from './button'
 import BootstrapModal from './modal'
-import { browserHistory } from 'ReactRouter'
+import { browserHistory } from 'react-router'
 
 var unlisten;
 

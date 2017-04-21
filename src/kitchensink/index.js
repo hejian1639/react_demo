@@ -1,5 +1,5 @@
 import React from 'react'
-import { Route, IndexRoute } from 'ReactRouter'
+import { Route, IndexRoute } from 'react-router'
 import './styles/ios.less'
 import 'css!fonts/iconfont'
 import 'css!jmui.ios.core'

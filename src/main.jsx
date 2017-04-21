@@ -4,7 +4,7 @@ import ReactDOM from 'react-dom'
 
 import { useBasename } from 'History'
 
-import { Router, Route, IndexRoute, browserHistory } from 'ReactRouter'
+import { Router, Route, IndexRoute, browserHistory } from 'react-router'
 import $ from 'jquery'
 import 'jquery.jplayer'
 import { createStore } from 'redux'
@@ -21,12 +21,13 @@ function withExampleBasename(history, dirname) {
 
 const store = createStore(reducer);
 
+import Home from 'home'
 
 
 ReactDOM.render((
     <Provider store={store}>
         <Router history={withExampleBasename(browserHistory, '/')}>
-            <Route path="/" component={require('home').default} />
+            <Route path="/" component={props => < Home {...props} subtitle='Rect Router' />} />
             <Route path="/react_page" getComponent={(nextState, cb) => {
                 window.require(['dist/react-page'], (ReactPage) => {
                     cb(null, ReactPage.default);
