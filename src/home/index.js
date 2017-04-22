@@ -66,6 +66,10 @@ const NAV_LINKS = {
         link: '/todos',
         title: 'Go to Todo list'
     },
+    typescript: {
+        link: '/typescript',
+        title: 'Go to Typescript'
+    },
 
 };
 

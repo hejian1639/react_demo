@@ -6,6 +6,19 @@ var ProgressBarPlugin = require('progress-bar-webpack-plugin');
 var baseLibUrl = '';
 var baseAppUrl = 'dist/';
 
+var babelOptions = {
+  "presets": [
+    "react",
+    [
+      "es2015",
+      {
+        "modules": false
+      }
+    ],
+    "es2016"
+  ]
+};
+
 module.exports = {
     devtool: 'source-map',
 
@@ -25,6 +38,7 @@ module.exports = {
         'bootstrap-popup': "./src/bootstrap_popup",
         'todos': "./src/todos",
         'mobx-todos': "./src/mobx",
+        'react-flux-babel-karma': "./src/react-flux-babel-karma/main.tsx",
 
     },
     output: {
@@ -35,6 +49,18 @@ module.exports = {
     },
     module: {
         rules: [
+            {
+                test: /\.ts(x?)$/,
+                exclude: /node_modules/,
+                use: [
+                    {
+                        loader: 'babel-loader',
+                        options: babelOptions
+                    },
+                    {
+                        loader: 'ts-loader'
+                    }]
+            },
             {
                 test: /\.jsx?$/,
                 use: {
@@ -56,7 +82,13 @@ module.exports = {
                             modules: true,
                         },
                     },
-                    { loader: 'postcss-loader', options: { plugins: () => [require('precss'), require('autoprefixer')] } }
+                    {
+                        loader: 'postcss-loader',
+                        options: {
+                            plugins: () => [require('precss'), require(
+                                'autoprefixer')]
+                        }
+                    }
                 ]
             },
             {
@@ -98,6 +130,7 @@ module.exports = {
         'bootstrap-react': baseAppUrl + 'bootstrap-react',
         'bootstrap-popup': baseAppUrl + 'bootstrap-popup',
         'mobx-todos': baseAppUrl + 'mobx-todos',
+        'react-flux-babel-karma': baseAppUrl + 'react-flux-babel-karma',
         'jquery': baseLibUrl + 'jquery',
         'react': {
             root: 'React',

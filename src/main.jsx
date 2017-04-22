@@ -80,6 +80,11 @@ ReactDOM.render((
                     cb(null, MobXTodo.default);
                 });
             }} />
+            <Route path="/typescript*" getComponent={(nextState, cb) => {
+                window.require(['dist/react-flux-babel-karma'], (Greeter) => {
+                    cb(null, Greeter.default);
+                });
+            }} />
             <Route path="/kitchensink" getComponent={(nextState, cb) => {
                 window.require(['dist/kitchensink'], (Kitchensink) => {
                     cb(null, Kitchensink.Framework);
