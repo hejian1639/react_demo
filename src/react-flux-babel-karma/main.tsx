@@ -1,12 +1,14 @@
 // import 'babel-polyfill';
-import React from 'react';
+// import React from 'react';
 
-// import App from './components/App';
+import App from './components/App';
 
-export default class Greeter extends React.Component<{}, {}> {
-    render() {
+export default App;
 
-        return <h1>Hello, Typescript!</h1>;
-    }
-}
+// class Greeter extends React.Component<{}, {}> {
+//     render() {
+
+//         return <h1>Hello, Typescript!</h1>;
+//     }
+// }
 

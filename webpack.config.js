@@ -7,12 +7,12 @@ var baseLibUrl = '';
 var baseAppUrl = 'dist/';
 
 var babelOptions = {
-  "presets": [
+    "presets": [
     "react",
     [
       "es2015",
-      {
-        "modules": false
+            {
+                "modules": false
       }
     ],
     "es2016"
@@ -177,6 +177,9 @@ module.exports = {
         'react-intl': baseLibUrl + 'react-intl',
 
     }],
+    resolve: {
+        extensions: ['.ts', '.tsx', '.js',  '.jsx']
+    },
     plugins: [
         new ProgressBarPlugin()
     ]
