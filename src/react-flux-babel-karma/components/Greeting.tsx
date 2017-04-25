@@ -1,20 +1,11 @@
 import React from 'react';
+import GreetingState from '../types/GreetingState';
+import {observer} from 'mobx-react';
 
-import * as GreetingActions from '../actions/GreetingActions';
 
-interface Props {
-  key: number;
-  targetOfGreeting: string;
-}
 
-class Greeting extends React.Component<Props, any> {
-  constructor(props: Props) {
-    super(props);
-  }
-
-  static propTypes: React.ValidationMap<Props> = {
-    targetOfGreeting: React.PropTypes.string.isRequired
-  }
+@observer
+class Greeting extends React.Component<{greetingState: GreetingState, targetOfGreeting: string}, any> {
 
   render() {
     return (
@@ -30,7 +21,7 @@ class Greeting extends React.Component<Props, any> {
   }
 
   _onClick = (_event: React.MouseEvent<HTMLButtonElement>) => {
-    GreetingActions.removeGreeting(this.props.targetOfGreeting);
+    this.props.greetingState.removeGreeting(this.props.targetOfGreeting);
   }
 }
 

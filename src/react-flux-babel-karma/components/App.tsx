@@ -1,45 +1,26 @@
 import React from 'react';
-import FBEmitter from "fbemitter";
 
-import GreetingStore from '../stores/GreetingStore';
 import GreetingState from '../types/GreetingState';
 import WhoToGreet from './WhoToGreet';
 import Greeting from './Greeting';
+import {observer} from 'mobx-react';
 
-class App extends React.Component<{}, GreetingState> {
-  eventSubscription: FBEmitter.EventSubscription;
-  constructor(props: {}) {
-    super(props);
-    this.state = this.getStateFromStores();
-  }
-  private onChange = () => {
-    this.setState(this.getStateFromStores());
-  }
-
-  public componentWillMount() {
-    this.eventSubscription = GreetingStore.addChangeListener(this.onChange);
-  }
-
-  public componentWillUnmount() {
-    this.eventSubscription.remove();
-  }
+@observer
+class App extends React.Component<{greetingState: GreetingState}, {}> {
 
   render() {
-    const { greetings, newGreeting } = this.state;
+    const { greetings } = this.props.greetingState;
     return (
       <div className="container-fluid">
         <h1>Hello People!</h1>
 
-        <WhoToGreet newGreeting={ newGreeting } />
+        <WhoToGreet greetingState={this.props.greetingState} />
 
-        { greetings.map((g, index) => <Greeting key={ index } targetOfGreeting={ g } />) }
+        { greetings.map((g, index) => <Greeting key={ index } greetingState={this.props.greetingState} targetOfGreeting={ g } />) }
       </div>
     );
   }
 
-  private getStateFromStores() {
-    return GreetingStore.getState();
-  }
 }
 
 export default App;

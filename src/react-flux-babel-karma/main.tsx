@@ -1,14 +1,13 @@
-// import 'babel-polyfill';
-// import React from 'react';
 
+import React from 'react';
 import App from './components/App';
+import GreetingState from './types/GreetingState';
 
-export default App;
 
-// class Greeter extends React.Component<{}, {}> {
-//     render() {
+const greetingState: GreetingState = new GreetingState();
 
-//         return <h1>Hello, Typescript!</h1>;
-//     }
-// }
+const Greeter = () => (
+    <App greetingState={greetingState} />
+);
 
+export default Greeter;
