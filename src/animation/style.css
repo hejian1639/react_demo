@@ -1,12 +1,14 @@
-:global(.example-appear) {
-   opacity: 0.01;
-}
+:global {
 
-:global(.example-appear.example-appear-active) {
-   opacity: 1;
-   transition: opacity 500ms ease-in;
-}
+    .example-appear {
+        opacity: 0.01;
+    }
 
+    .example-appear.example-appear-active {
+        opacity: 1;
+        transition: opacity 500ms ease-in;
+    }
+}
 
 @keyframes :global(myfirst) {
     from {

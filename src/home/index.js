@@ -70,6 +70,10 @@ const NAV_LINKS = {
         link: '/typescript',
         title: 'Go to Typescript'
     },
+    '2d-scroll': {
+        link: '/2d-scroll',
+        title: 'Go to 2D Scroll'
+    },
 
 };
 

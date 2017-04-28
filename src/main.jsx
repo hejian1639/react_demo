@@ -85,7 +85,12 @@ ReactDOM.render((
                     cb(null, Greeter.default);
                 });
             }} />
-            <Route path="/kitchensink*" getComponent={(nextState, cb) => {
+            <Route path="/2d-scroll*" getComponent={(nextState, cb) => {
+                window.require(['dist/2d-scroll'], (IScroll2D) => {
+                    cb(null, IScroll2D.default);
+                });
+            }} />
+            <Route path="/kitchensink" getComponent={(nextState, cb) => {
                 window.require(['dist/kitchensink'], (Kitchensink) => {
                     cb(null, Kitchensink.Framework);
                 });
