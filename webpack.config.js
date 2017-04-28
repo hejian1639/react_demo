@@ -2,6 +2,7 @@ var path = require("path");
 var precss = require('precss'); // 实现类Sass的功能，变量，嵌套，mixins
 var autoprefixer = require('autoprefixer'); // 自动添加浏览器前缀
 var ProgressBarPlugin = require('progress-bar-webpack-plugin');
+var fs = require('fs')
 
 var baseLibUrl = '';
 var baseAppUrl = 'dist/';
@@ -11,36 +12,102 @@ var babelOptions = {
     "react",
     [
       "es2015",
-            {
-                "modules": false
-      }
+        {
+            "modules": false
+        }
     ],
     "es2016"
   ]
 };
 
+var rootDir = __dirname + '/src';
+var entry = fs.readdirSync(rootDir)
+    .reduce(function(entries, dir) {
+        if (fs.statSync(path.join(rootDir, dir))
+            .isDirectory()) {
+            var entryFile = path.join(rootDir, dir, 'index.js')
+            if (fs.existsSync(entryFile)) {
+                entries[dir] = entryFile;
+            }
+        }
+
+        return entries
+    }, {
+        main: "./src/main.jsx",
+        'active-links': "./src/active-links.jsx",
+        'jmui-test': "./src/jmui-test.jsx",
+        form: "./src/form.jsx",
+        'react-flux-babel-karma': "./src/react-flux-babel-karma/main.tsx",
+    });
+
+
+var externals = fs.readdirSync(rootDir)
+    .reduce(function(entries, dir) {
+        if (fs.statSync(path.join(rootDir, dir))
+            .isDirectory()) {
+            var entryFile = path.join(rootDir, dir, 'index.js')
+            if (fs.existsSync(entryFile)) {
+                entries[dir] = baseAppUrl + dir;
+            }
+        }
+
+        return entries
+    }, {
+        'active-links': baseAppUrl + "active-links",
+        'jmui-test': baseAppUrl + "jmui-test",
+        'form': baseAppUrl + "form",
+        'react-flux-babel-karma': baseAppUrl + "react-flux-babel-karma",
+        'jquery.jplayer': 'jplayer/jquery.jplayer',
+        'css!fonts/iconfont': 'css!' + 'fonts/iconfont',
+        'css!todomvc-app-css': 'css!' + 'todomvc-app-css/index.css',
+        'css!todomvc-common': 'css!' + 'todomvc-common/base.css',
+    });
+
+var rootDir = './lib';
+
+function delJSExtension(str) {
+    var reg = /.js$/;
+    return str.replace(reg, '');
+}
+
+function delCSSExtension(str) {
+    var reg = /.css$/;
+    return str.replace(reg, '');
+}
+externals = fs.readdirSync(rootDir)
+    .reduce(function(entries, dir) {
+        if (fs.statSync(path.join(rootDir, dir))
+            .isFile()) {
+            if (dir.match(/.js$/)) {
+                dir = delJSExtension(dir);
+                entries[dir] = dir;
+
+            } else if (dir.match(/.css$/)) {
+                dir = 'css!' + delCSSExtension(dir);
+                entries[dir] = dir;
+
+            }
+        }
+
+        return entries
+    }, externals);
+
+// entry = Object.assign(entry, {
+//         main: "./src/main.jsx",
+//         'active-links': "./src/active-links.jsx",
+//         'jmui-test': "./src/jmui-test.jsx",
+//         form: "./src/form.jsx",
+//         'react-flux-babel-karma': "./src/react-flux-babel-karma/main.tsx",
+
+//     });
+console.log(externals);
+
+// function _toConsumableArray(arr) { if (Array.isArray(arr)) { for (var i = 0, arr2 = Array(arr.length); i < arr.length; i++) { arr2[i] = arr[i]; } return arr2; } else { return Array.from(arr); } }
+
 module.exports = {
     devtool: 'source-map',
 
-    entry: {
-        main: "./src/main.jsx",
-        home: "./src/home",
-        'react-page': "./src/react_page",
-        form: "./src/form.jsx",
-        'active-links': "./src/active-links.jsx",
-        'jmui-test': "./src/jmui-test.jsx",
-        'kitchensink': "./src/kitchensink",
-        'animation': "./src/animation",
-        'music': "./src/music",
-        'header': "./src/header",
-        'starter-template': "./src/starter_template",
-        'bootstrap-react': "./src/bootstrap_react",
-        'bootstrap-popup': "./src/bootstrap_popup",
-        'todos': "./src/todos",
-        'mobx-todos': "./src/mobx",
-        'react-flux-babel-karma': "./src/react-flux-babel-karma/main.tsx",
-
-    },
+    entry: entry,
     output: {
         path: path.join(__dirname, "dist"),
         filename: "[name].js",
@@ -113,72 +180,9 @@ module.exports = {
         ]
     },
 
-    externals: [{
-        // require("jquery") is external and available
-        //  on the global var jQuery
-        //  "jquery": "jQuery"
-        'home': baseAppUrl + 'home',
-        'react-page': baseAppUrl + 'react-page',
-        'form': baseAppUrl + 'form',
-        'active-links': baseAppUrl + 'active-links',
-        'jmui-test': baseAppUrl + 'jmui-test',
-        'kitchensink': baseAppUrl + 'kitchensink',
-        'animation': baseAppUrl + 'animation',
-        'music': baseAppUrl + 'music',
-        'header': baseAppUrl + 'header',
-        'starter-template': baseAppUrl + 'starter-template',
-        'bootstrap-react': baseAppUrl + 'bootstrap-react',
-        'bootstrap-popup': baseAppUrl + 'bootstrap-popup',
-        'mobx-todos': baseAppUrl + 'mobx-todos',
-        'react-flux-babel-karma': baseAppUrl + 'react-flux-babel-karma',
-        'jquery': baseLibUrl + 'jquery',
-        'react': {
-            root: 'React',
-            commonjs2: 'react',
-            commonjs: 'react',
-            amd: baseLibUrl + 'react'
-        },
-        'react-dom': {
-            root: 'ReactDOM',
-            commonjs2: 'react-dom',
-            commonjs: 'react-dom',
-            amd: baseLibUrl + 'react-dom'
-        },
-        'react-addons-css-transition-group': {
-            root: 'ReactCSSTransitionGroup',
-            commonjs2: 'react-addons-css-transition-group',
-            commonjs: 'react-addons-css-transition-group',
-            amd: baseLibUrl + 'react-addons-css-transition-group'
-        },
-        'react-transition': {
-            root: 'ReactTransition',
-            commonjs2: 'react-transition',
-            commonjs: 'react-transition',
-            amd: baseLibUrl + 'react-transition'
-        },
-        'redux': baseLibUrl + 'redux',
-        'react-redux': baseLibUrl + 'react-redux',
-        'react-router': baseLibUrl + 'ReactRouter',
-        'History': baseLibUrl + 'History',
-        'jmui': baseLibUrl + 'jmui',
-        'jquery.jplayer': baseLibUrl + 'jplayer/jquery.jplayer',
-        'css!jmui.ios.core': 'css!' + baseLibUrl + 'jmui.ios.core',
-        'css!fonts/iconfont': 'css!' + baseLibUrl + 'fonts/iconfont',
-        'bootstrap': baseLibUrl + 'bootstrap',
-        'css!bootstrap': 'css!' + baseLibUrl + 'bootstrap',
-        'css!bootstrap-theme': 'css!' + baseLibUrl + 'bootstrap-theme',
-        'react-bootstrap': baseLibUrl + 'react-bootstrap',
-        'css!todomvc-app-css': 'css!' + baseLibUrl + 'todomvc-app-css/index.css',
-        'css!todomvc-common': 'css!' + baseLibUrl + 'todomvc-common/base.css',
-        'todomvc-common': baseLibUrl + 'todomvc-common/base',
-        'mobx': baseLibUrl + 'mobx',
-        'mobx-react': baseLibUrl + 'mobx-react',
-        'mobx-react-devtools': baseLibUrl + 'mobx-react-devtools/index',
-        'react-intl': baseLibUrl + 'react-intl',
-
-    }],
+    externals: [externals],
     resolve: {
-        extensions: ['.ts', '.tsx', '.js',  '.jsx']
+        extensions: ['.ts', '.tsx', '.js', '.jsx']
     },
     plugins: [
         new ProgressBarPlugin()

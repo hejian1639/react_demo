@@ -12,6 +12,12 @@ var grandChildRoutes = [
         }
     },
     {
+        path: 'button',
+        getComponent(nextState, cb) {
+            cb(null, require('./views/Components/Button').default);
+        }
+    },
+    {
         path: 'pages',
         getComponent(nextState, cb) {
             cb(null, require('./views/Components/Pages').default);
@@ -21,6 +27,12 @@ var grandChildRoutes = [
         path: 'accordion',
         getComponent(nextState, cb) {
             cb(null, require('./views/Components/Accordion').default);
+        }
+    },
+    {
+        path: 'tabbar',
+        getComponent(nextState, cb) {
+            cb(null, require('./views/Components/Tabbar').default);
         }
     },
 ];

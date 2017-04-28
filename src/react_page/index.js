@@ -23,7 +23,7 @@ class ReactPage extends React.Component {
         }.bind(this), 50);
 
         function timeout(ms) {
-            return new PromisePolyfill((resolve, reject) => {
+            return new Promise((resolve, reject) => {
                 setTimeout(resolve, ms, 'done');
             });
         }

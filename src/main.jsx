@@ -29,7 +29,7 @@ ReactDOM.render((
         <Router history={withExampleBasename(browserHistory, '/')}>
             <Route path="/" component={props => < Home {...props} subtitle='Rect Router' />} />
             <Route path="/react_page" getComponent={(nextState, cb) => {
-                window.require(['dist/react-page'], (ReactPage) => {
+                window.require(['dist/react_page'], (ReactPage) => {
                     cb(null, ReactPage.default);
                 });
             }} />
@@ -61,12 +61,12 @@ ReactDOM.render((
                 });
             }} />
             <Route path="/bootstrap_react" getComponent={(nextState, cb) => {
-                window.require(['dist/bootstrap-react'], (BootstrapReact) => {
+                window.require(['dist/bootstrap_react'], (BootstrapReact) => {
                     cb(null, BootstrapReact.default);
                 });
             }} />
             <Route path="/bootstrap_popup*" getComponent={(nextState, cb) => {
-                window.require(['dist/bootstrap-popup'], (BootstrapPopup) => {
+                window.require(['dist/bootstrap_popup'], (BootstrapPopup) => {
                     cb(null, BootstrapPopup.default);
                 });
             }} />
@@ -85,7 +85,7 @@ ReactDOM.render((
                     cb(null, Greeter.default);
                 });
             }} />
-            <Route path="/kitchensink" getComponent={(nextState, cb) => {
+            <Route path="/kitchensink*" getComponent={(nextState, cb) => {
                 window.require(['dist/kitchensink'], (Kitchensink) => {
                     cb(null, Kitchensink.Framework);
                 });

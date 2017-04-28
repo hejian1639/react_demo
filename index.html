@@ -14,9 +14,10 @@
 <body>
     <div id="root" style="width: 100%; height: 100%"></div>
     <div id="jquery_jplayer_1" className="jp-jplayer"></div>
-    <script type="text/javascript" src="lib/promise.js"></script>
+    <script type="text/javascript" src="lib/polyfill.js"></script>
     <script type="text/javascript" src="lib/require.js"></script>
     <script type="text/javascript">
+
         requirejs.config({
             baseUrl: 'lib',
             paths: {
@@ -27,7 +28,6 @@
         // Start loading the main app file. Put all of
         // your application logic in there.
         requirejs(['dist/main']);
-
     </script>
 </body>
 
