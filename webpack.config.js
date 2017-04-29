@@ -29,6 +29,22 @@ var entry = fs.readdirSync(rootDir)
             if (fs.existsSync(entryFile)) {
                 entries[dir] = entryFile;
             }
+
+            var entryFile = path.join(rootDir, dir, 'index.jsx')
+            if (fs.existsSync(entryFile)) {
+                entries[dir] = entryFile;
+            }
+
+            var entryFile = path.join(rootDir, dir, 'index.ts')
+            if (fs.existsSync(entryFile)) {
+                entries[dir] = entryFile;
+            }
+
+            var entryFile = path.join(rootDir, dir, 'index.tsx')
+            if (fs.existsSync(entryFile)) {
+                entries[dir] = entryFile;
+            }
+
         }
 
         return entries
@@ -37,7 +53,7 @@ var entry = fs.readdirSync(rootDir)
         'active-links': "./src/active-links.jsx",
         'jmui-test': "./src/jmui-test.jsx",
         form: "./src/form.jsx",
-        'react-flux-babel-karma': "./src/react-flux-babel-karma/main.tsx",
+        // 'react-flux-babel-karma': "./src/react-flux-babel-karma/main.tsx",
     });
 
 
@@ -49,6 +65,22 @@ var externals = fs.readdirSync(rootDir)
             if (fs.existsSync(entryFile)) {
                 entries[dir] = baseAppUrl + dir;
             }
+
+            var entryFile = path.join(rootDir, dir, 'index.jsx')
+            if (fs.existsSync(entryFile)) {
+                entries[dir] = baseAppUrl + dir;
+            }
+
+            var entryFile = path.join(rootDir, dir, 'index.ts')
+            if (fs.existsSync(entryFile)) {
+                entries[dir] = baseAppUrl + dir;
+            }
+
+            var entryFile = path.join(rootDir, dir, 'index.tsx')
+            if (fs.existsSync(entryFile)) {
+                entries[dir] = baseAppUrl + dir;
+            }
+            
         }
 
         return entries

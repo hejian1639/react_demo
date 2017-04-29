@@ -2,7 +2,7 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
 
-import { useBasename } from 'History'
+import { useBasename } from 'history'
 
 import { Router, Route, IndexRoute, browserHistory } from 'react-router'
 import $ from 'jquery'
