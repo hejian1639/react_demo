@@ -3,6 +3,8 @@ var precss = require('precss'); // 实现类Sass的功能，变量，嵌套，mi
 var autoprefixer = require('autoprefixer'); // 自动添加浏览器前缀
 var ProgressBarPlugin = require('progress-bar-webpack-plugin');
 var fs = require('fs')
+// var TypingsCssModulePlugin = require('./typings-for-css-modules-plugin');
+import TypingsCssModulePlugin from './typings-for-css-modules-plugin';
 
 var baseLibUrl = '';
 var baseAppUrl = 'dist/';
@@ -12,8 +14,8 @@ var babelOptions = {
     "react",
     [
       "es2015",
-        {
-            "modules": false
+            {
+                "modules": false
         }
     ],
     "es2016"
@@ -53,9 +55,7 @@ var entry = fs.readdirSync(rootDir)
         'active-links': "./src/active-links.jsx",
         'jmui-test': "./src/jmui-test.jsx",
         form: "./src/form.jsx",
-        // 'react-flux-babel-karma': "./src/react-flux-babel-karma/main.tsx",
     });
-
 
 var externals = fs.readdirSync(rootDir)
     .reduce(function(entries, dir) {
@@ -80,7 +80,7 @@ var externals = fs.readdirSync(rootDir)
             if (fs.existsSync(entryFile)) {
                 entries[dir] = baseAppUrl + dir;
             }
-            
+
         }
 
         return entries
@@ -93,6 +93,7 @@ var externals = fs.readdirSync(rootDir)
         'css!fonts/iconfont': 'css!' + 'fonts/iconfont',
         'css!todomvc-app-css': 'css!' + 'todomvc-app-css/index.css',
         'css!todomvc-common': 'css!' + 'todomvc-common/base.css',
+        'mobx-react-devtools': 'mobx-react-devtools/index',
     });
 
 var rootDir = './lib';
@@ -132,9 +133,7 @@ externals = fs.readdirSync(rootDir)
 //         'react-flux-babel-karma': "./src/react-flux-babel-karma/main.tsx",
 
 //     });
-console.log(externals);
-
-// function _toConsumableArray(arr) { if (Array.isArray(arr)) { for (var i = 0, arr2 = Array(arr.length); i < arr.length; i++) { arr2[i] = arr[i]; } return arr2; } else { return Array.from(arr); } }
+// console.log(externals);
 
 module.exports = {
     devtool: 'source-map',
@@ -214,9 +213,10 @@ module.exports = {
 
     externals: [externals],
     resolve: {
-        extensions: ['.ts', '.tsx', '.js', '.jsx']
+        extensions: ['.ts', '.tsx', '.js', '.jsx', '.d.ts']
     },
     plugins: [
-        new ProgressBarPlugin()
+        new ProgressBarPlugin(),
+        new TypingsCssModulePlugin()
     ]
 };

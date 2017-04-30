@@ -7,7 +7,7 @@
             "es2016"
         ],
         "jsx": "react",
-        "target": "es5",
+        "target": "es2016",
         "module": "es2015",
         "moduleResolution": "node",
         "noImplicitAny": true,

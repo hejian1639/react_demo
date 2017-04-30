@@ -1,9 +1,10 @@
 import React from 'react'
 import style from './style.css'
-import IScroll from 'iscroll'
+// import IScroll from 'iscroll'
+import IScroll from "iscroll";
 
 
-export default class IScroll2D extends React.Component {
+export default class IScroll2D extends React.Component<{}, {}> {
     componentDidMount () {
        new IScroll('#wrapper', { scrollX: false, freeScroll: true });
     }
