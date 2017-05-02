@@ -12,27 +12,153 @@ var grandChildRoutes = [
         }
     },
     {
-        path: 'button',
-        getComponent(nextState, cb) {
-            cb(null, require('./views/Components/Button').default);
-        }
-    },
-    {
         path: 'pages',
         getComponent(nextState, cb) {
             cb(null, require('./views/Components/Pages').default);
         }
     },
     {
-        path: 'accordion',
+        path: 'transitionpages',
         getComponent(nextState, cb) {
-            cb(null, require('./views/Components/Accordion').default);
+            cb(null, require('./views/Components/TransitionPages').default);
+        }
+    },
+    {
+        path: 'transitionpagesright',
+        getComponent(nextState, cb) {
+            cb(null, require('./views/Components/TransitionPagesRight').default);
+        }
+    },
+    {
+        path: 'transitionpagesup',
+        getComponent(nextState, cb) {
+            cb(null, require('./views/Components/TransitionPagesUp').default);
+        }
+    },
+    {
+        path: 'page',
+        getComponent(nextState, cb) {
+            cb(null, require('./views/Components/Page').default);
+        }
+    },
+    {
+        path: 'block',
+        getComponent(nextState, cb) {
+            cb(null, require('./views/Components/Block').default);
+        }
+    },
+    {
+        path: 'grid',
+        getComponent(nextState, cb) {
+            cb(null, require('./views/Components/Grid').default);
+        }
+    },
+    {
+        path: 'button',
+        getComponent(nextState, cb) {
+            cb(null, require('./views/Components/Button').default);
+        }
+    },
+    {
+        path: 'form',
+        getComponent(nextState, cb) {
+            cb(null, require('./views/Components/Form').default);
+        }
+    },
+    {
+        path: 'picker',
+        getComponent(nextState, cb) {
+            cb(null, require('./views/Components/Picker').default);
+        }
+    },
+    {
+        path: 'radiofield',
+        getComponent(nextState, cb) {
+            cb(null, require('./views/Components/RadioField').default);
+        }
+    },
+    {
+        path: 'checkfield',
+        getComponent(nextState, cb) {
+            cb(null, require('./views/Components/CheckField').default);
+        }
+    },
+    {
+        path: 'numberfield',
+        getComponent(nextState, cb) {
+            cb(null, require('./views/Components/NumberField').default);
+        }
+    },
+    {
+        path: 'navbar',
+        getComponent(nextState, cb) {
+            cb(null, require('./views/Components/Navbar').default);
+        }
+    },
+    {
+        path: 'toolbar',
+        getComponent(nextState, cb) {
+            cb(null, require('./views/Components/Toolbar').default);
         }
     },
     {
         path: 'tabbar',
         getComponent(nextState, cb) {
             cb(null, require('./views/Components/Tabbar').default);
+        }
+    },
+    {
+        path: 'list',
+        getComponent(nextState, cb) {
+            cb(null, require('./views/Components/List').default);
+        }
+    },
+    {
+        path: 'medialist',
+        getComponent(nextState, cb) {
+            cb(null, require('./views/Components/MediaList').default);
+        }
+    },
+    {
+        path: 'card',
+        getComponent(nextState, cb) {
+            cb(null, require('./views/Components/Card').default);
+        }
+    },
+    {
+        path: 'notification',
+        getComponent(nextState, cb) {
+            cb(null, require('./views/Components/Notification').default);
+        }
+    },
+    {
+        path: 'preloader',
+        getComponent(nextState, cb) {
+            cb(null, require('./views/Components/Preloader').default);
+        }
+    },
+    {
+        path: 'image',
+        getComponent(nextState, cb) {
+            cb(null, require('./views/Components/Image').default);
+        }
+    },
+    {
+        path: 'badge',
+        getComponent(nextState, cb) {
+            cb(null, require('./views/Components/Badge').default);
+        }
+    },
+    {
+        path: 'icon',
+        getComponent(nextState, cb) {
+            cb(null, require('./views/Components/Icon').default);
+        }
+    },
+    {
+        path: 'accordion',
+        getComponent(nextState, cb) {
+            cb(null, require('./views/Components/Accordion').default);
         }
     },
 ];
