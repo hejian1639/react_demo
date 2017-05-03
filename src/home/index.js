@@ -2,12 +2,9 @@
 import React from 'react'
 import { Link } from 'react-router'
 import { Button, DropdownButton, MenuItem } from 'react-bootstrap';
-// import 'css!bootstrap'
-// import 'css!bootstrap-theme'
 import { IntlProvider, FormattedMessage } from 'react-intl';
 import cssAPI from 'css-require'
-
-// console.log(bootstrap);
+import Loading from 'react-loading';
 
 const zh_CN = {
     home: "家",
@@ -143,13 +140,23 @@ export default React.createClass({
 
     componentWillMount: function () {
         console.log('componentWillMount');
-        this.bootstrap = cssAPI.load('lib/bootstrap');
-        this.bootstrapTheme = cssAPI.load('lib/bootstrap-theme');
+        
+        var p1 = new Promise((resolve, reject) => {
+            this.bootstrap = cssAPI.load('lib/bootstrap', resolve);
+        });
+
+        var p2 = new Promise((resolve, reject) => {
+            this.bootstrapTheme = cssAPI.load('lib/bootstrap-theme', resolve);
+        });
+
+        Promise.all([p1, p2]).then(values => { 
+            this.setState({ loading: false });
+        });
     },
 
     getInitialState: function () {
         console.log('getInitialState');
-        return { degree: 0, hovered: false, nav_links: NAV_LINKS, lang: en_US };
+        return { degree: 0, hovered: false, nav_links: NAV_LINKS, lang: en_US, loading: true };
     },
 
     timerId: null,
@@ -216,14 +223,6 @@ export default React.createClass({
             this.refs.modal.close();
         }
     },
-    rotate: function () {
-        console.log(this.state.degree);
-
-        this.setState({ degree: this.state.degree + 5 });
-
-        console.log(this.state.degree);
-        //        this.forceUpdate();
-    },
 
     appendOption: function () {
         var $option = $("<option value='longOption'>longOption</option>");
@@ -255,17 +254,12 @@ export default React.createClass({
     render: function () {
         console.log('render');
 
-        var rotateStyle = {
-            margin: '30px',
-            width: '100px',
-            height: '75px',
-            backgroundColor: 'yellow',
-            border: '1px solid black',
-            borderRadius: '5px',
-            textShadow: '1px 1px 1px #FF0000',
-            transform: 'rotate(' + this.state.degree + 'deg)',
-        };
-
+        if(this.state.loading){
+            return (
+                <div style={{ width: '64px', height: '64px', position: 'absolute', margin: '-32px 0 0 -32px', left: '50%',  top: '50%'}}>
+                     <Loading type='spin' color='blue' />;
+                </div>);
+        }
 
         return (
 
