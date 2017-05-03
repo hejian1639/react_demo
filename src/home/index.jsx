@@ -5,6 +5,7 @@ import { Button, DropdownButton, MenuItem } from 'react-bootstrap';
 import { IntlProvider, FormattedMessage } from 'react-intl';
 import cssAPI from 'css-require'
 import Loading from 'react-loading';
+import $ from 'jquery'
 
 const zh_CN = {
     home: "家",
@@ -140,7 +141,8 @@ export default React.createClass({
 
     componentWillMount: function () {
         console.log('componentWillMount');
-        
+        $('#pageLoading').show();
+
         var p1 = new Promise((resolve, reject) => {
             this.bootstrap = cssAPI.load('lib/bootstrap', resolve);
         });
@@ -149,47 +151,21 @@ export default React.createClass({
             this.bootstrapTheme = cssAPI.load('lib/bootstrap-theme', resolve);
         });
 
-        Promise.all([p1, p2]).then(values => { 
+        Promise.all([p1, p2]).then(values => {
             this.setState({ loading: false });
+            $('#pageLoading').hide();
         });
     },
 
     getInitialState: function () {
         console.log('getInitialState');
-        return { degree: 0, hovered: false, nav_links: NAV_LINKS, lang: en_US, loading: true };
+        return { nav_links: NAV_LINKS, lang: en_US, loading: true };
     },
 
     timerId: null,
 
     componentDidMount: function () {
         console.log('componentDidMount');
-        var availableTags = [
-            "ActionScript",
-            "AppleScript",
-            "Asp",
-            "BASIC",
-            "C",
-            "C++",
-            "Clojure",
-            "COBOL",
-            "ColdFusion",
-            "Erlang",
-            "Fortran",
-            "Groovy",
-            "Haskell",
-            "Java",
-            "JavaScript",
-            "Lisp",
-            "Perl",
-            "PHP",
-            "Python",
-            "Ruby",
-            "Scala",
-            "Scheme"
-        ];
-        // $(this.refs.autocomplete).autocomplete({
-        //     source: availableTags
-        // });
 
 
 
@@ -197,54 +173,11 @@ export default React.createClass({
     },
 
     componentWillUnmount: function () {
-        // bootstrap();
-        // bootstrapTheme();
         cssAPI.unload(this.bootstrap);
         cssAPI.unload(this.bootstrapTheme);
         console.log('componentWillUnmount');
     },
-    handleClick: function (module) {
-        window.require([module], function (App) {
-            var app = new App();
-            app.init();
-        });
-    },
-    openModal: function () {
-        this.refs.modal.open();
-    },
-    closeModal: function () {
-        this.refs.modal.close();
-    },
-    handleModalDidClose: function () {
-        console.log("The modal has been dismissed!");
-    },
-    handleCancel: function () {
-        if (confirm('Are you sure you want to cancel?')) {
-            this.refs.modal.close();
-        }
-    },
 
-    appendOption: function () {
-        var $option = $("<option value='longOption'>longOption</option>");
-        $(this.refs.selector).append($option);
-        //$("#selector").append($option);      
-
-    },
-
-    style: function () {
-        if (this.state.hovered) {
-            return { background: 'red', width: '300px', height: '200px', transition: 'background 2s, width 2s, height 2s' };
-        } else {
-            return { background: 'yellow', width: '100px', height: '100px', transition: 'background 2s, width 2s, height 2s' };
-        }
-    },
-    onMouseEnter: function () {
-        this.setState({ hovered: true });
-    },
-
-    onMouseLeave: function () {
-        this.setState({ hovered: false });
-    },
 
     refresh: function () {
         this.setState({ nav_links: NAV_LINKS1 });
@@ -254,10 +187,10 @@ export default React.createClass({
     render: function () {
         console.log('render');
 
-        if(this.state.loading){
+        if (this.state.loading) {
             return (
-                <div style={{ width: '64px', height: '64px', position: 'absolute', margin: '-32px 0 0 -32px', left: '50%',  top: '50%'}}>
-                     <Loading type='spin' color='blue' />;
+                <div style={{ width: '64px', height: '64px', position: 'absolute', margin: '-32px 0 0 -32px', left: '50%', top: '50%' }}>
+                    <Loading type='spin' color='blue' />
                 </div>);
         }
 
@@ -273,22 +206,22 @@ export default React.createClass({
                         {this.props.subtitle}
                     </h2>
                     <DropdownButton bsStyle='primary' title={this.state.lang.language} id={`dropdown-basic`}>
-                        <MenuItem onClick={() => {this.setState({lang: zh_CN})}}>
-                        <FormattedMessage
-                            id="chinese"
-                            defaultMessage={'Chinese'}/>
+                        <MenuItem onClick={() => { this.setState({ lang: zh_CN }) }}>
+                            <FormattedMessage
+                                id="chinese"
+                                defaultMessage={'Chinese'} />
                         </MenuItem>
-                        <MenuItem onClick={() => {this.setState({lang: en_US})}}>
-                        <FormattedMessage
-                            id="english"
-                            defaultMessage={'English'}/>
+                        <MenuItem onClick={() => { this.setState({ lang: en_US }) }}>
+                            <FormattedMessage
+                                id="english"
+                                defaultMessage={'English'} />
                         </MenuItem>
                     </DropdownButton>
                     <br />
                     <br />
                     <ul role="nav" style={{ paddingLeft: '20px' }}>
                         {Object.entries(this.state.nav_links).map(([linkName, { link, title }]) => (
-                            <li key={linkName}  style={{ paddingBottom: '5px' }}>
+                            <li key={linkName} style={{ paddingBottom: '5px' }}>
                                 <Link to={link}>
                                     {title}
                                 </Link>
