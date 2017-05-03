@@ -2,11 +2,12 @@
 import React from 'react'
 import { Link } from 'react-router'
 import { Button, DropdownButton, MenuItem } from 'react-bootstrap';
-import bootstrap from 'css!bootstrap'
-import bootstrapTheme from 'css!bootstrap-theme'
+// import 'css!bootstrap'
+// import 'css!bootstrap-theme'
 import { IntlProvider, FormattedMessage } from 'react-intl';
+import cssAPI from 'css-require'
 
-console.log(bootstrap);
+// console.log(bootstrap);
 
 const zh_CN = {
     home: "家",
@@ -142,6 +143,8 @@ export default React.createClass({
 
     componentWillMount: function () {
         console.log('componentWillMount');
+        this.bootstrap = cssAPI.load('lib/bootstrap');
+        this.bootstrapTheme = cssAPI.load('lib/bootstrap-theme');
     },
 
     getInitialState: function () {
@@ -189,6 +192,8 @@ export default React.createClass({
     componentWillUnmount: function () {
         // bootstrap();
         // bootstrapTheme();
+        cssAPI.unload(this.bootstrap);
+        cssAPI.unload(this.bootstrapTheme);
         console.log('componentWillUnmount');
     },
     handleClick: function (module) {
