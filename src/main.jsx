@@ -21,13 +21,18 @@ function withExampleBasename(history, dirname) {
 
 const store = createStore(reducer);
 
-import Home from 'home'
+// import Home from 'home'
 
 
 ReactDOM.render((
     <Provider store={store}>
         <Router history={withExampleBasename(browserHistory, '/')}>
-            <Route path="/" component={props => < Home {...props} subtitle='Rect Router' />} />
+            {/*<Route path="/" component={props => < Home {...props} subtitle='Rect Router' />} />*/}
+            <Route path="/" getComponent={(nextState, cb) => {
+                window.require(['dist/home'], (Home) => {
+                    cb(null, props => <Home.default {...props} subtitle='Rect Router' />);
+                });
+            }} />
             <Route path="/react_page" getComponent={(nextState, cb) => {
                 window.require(['dist/react_page'], (ReactPage) => {
                     cb(null, ReactPage.default);
@@ -88,6 +93,11 @@ ReactDOM.render((
             <Route path="/2d-scroll*" getComponent={(nextState, cb) => {
                 window.require(['dist/2d-scroll'], (IScroll2D) => {
                     cb(null, IScroll2D.default);
+                });
+            }} />
+            <Route path="/responsive*" getComponent={(nextState, cb) => {
+                window.require(['dist/responsive'], (Responsive) => {
+                    cb(null, Responsive.default);
                 });
             }} />
             <Route path="/kitchensink" getComponent={(nextState, cb) => {

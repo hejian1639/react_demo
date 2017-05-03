@@ -2,9 +2,11 @@
 import React from 'react'
 import { Link } from 'react-router'
 import { Button, DropdownButton, MenuItem } from 'react-bootstrap';
-import 'css!bootstrap'
-import 'css!bootstrap-theme'
+import bootstrap from 'css!bootstrap'
+import bootstrapTheme from 'css!bootstrap-theme'
 import { IntlProvider, FormattedMessage } from 'react-intl';
+
+console.log(bootstrap);
 
 const zh_CN = {
     home: "家",
@@ -125,6 +127,10 @@ const NAV_LINKS1 = {
         link: '/mobx_todos',
         title: 'Go to MobX Todo list'
     },
+    responsive: {
+        link: '/responsive',
+        title: 'Go to Responsive Page'
+    },
 };
 
 export default React.createClass({
@@ -181,6 +187,8 @@ export default React.createClass({
     },
 
     componentWillUnmount: function () {
+        // bootstrap();
+        // bootstrapTheme();
         console.log('componentWillUnmount');
     },
     handleClick: function (module) {
@@ -279,9 +287,9 @@ export default React.createClass({
                     </DropdownButton>
                     <br />
                     <br />
-                    <ul role="nav">
+                    <ul role="nav" style={{ paddingLeft: '20px' }}>
                         {Object.entries(this.state.nav_links).map(([linkName, { link, title }]) => (
-                            <li key={linkName}>
+                            <li key={linkName}  style={{ paddingBottom: '5px' }}>
                                 <Link to={link}>
                                     {title}
                                 </Link>

@@ -4,7 +4,7 @@
   "description": "node modules",
   "author": "John He",
   "scripts": {
-    "start": "node server.js"
+    "start": "babel-node server.js"
   },
   "dependencies": {
     "almond": "0.3.2",
