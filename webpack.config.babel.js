@@ -3,7 +3,6 @@ var precss = require('precss'); // 实现类Sass的功能，变量，嵌套，mi
 var autoprefixer = require('autoprefixer'); // 自动添加浏览器前缀
 var ProgressBarPlugin = require('progress-bar-webpack-plugin');
 var fs = require('fs')
-// var TypingsCssModulePlugin = require('./typings-for-css-modules-plugin');
 import TypingsCssModulePlugin from './typings-for-css-modules-plugin';
 
 var baseLibUrl = '';
@@ -21,6 +20,15 @@ var babelOptions = {
     "es2016"
   ]
 };
+
+function ifExistDelExtension(reg, str) {
+    if (str.match(reg)) {
+        return str.replace(reg, '');
+
+    }
+
+    return false;
+}
 
 var rootDir = __dirname + '/src';
 var entry = fs.readdirSync(rootDir)
@@ -47,15 +55,18 @@ var entry = fs.readdirSync(rootDir)
                 entries[dir] = entryFile;
             }
 
+        } else if (fs.statSync(path.join(rootDir, dir))
+            .isFile()) {
+            var entryName = ifExistDelExtension(/.(js(x?))|(tsx?)$/, dir);
+            if (entryName) {
+
+                entries[entryName] = path.join(rootDir, dir);
+            }
+
         }
 
         return entries
-    }, {
-        main: "./src/main.jsx",
-        'active-links': "./src/active-links.jsx",
-        'jmui-test': "./src/jmui-test.jsx",
-        form: "./src/form.jsx",
-    });
+    }, {});
 
 var externals = fs.readdirSync(rootDir)
     .reduce(function(entries, dir) {
@@ -81,14 +92,17 @@ var externals = fs.readdirSync(rootDir)
                 entries[dir] = baseAppUrl + dir;
             }
 
+        } else if (fs.statSync(path.join(rootDir, dir))
+            .isFile()) {
+            var entryName = ifExistDelExtension(/.(js(x?))|(tsx?)$/, dir);
+            if (entryName) {
+                entries[dir] = baseAppUrl + dir;
+
+            }
         }
 
         return entries
     }, {
-        'active-links': baseAppUrl + "active-links",
-        'jmui-test': baseAppUrl + "jmui-test",
-        'form': baseAppUrl + "form",
-        'react-flux-babel-karma': baseAppUrl + "react-flux-babel-karma",
         'jquery.jplayer': 'jplayer/jquery.jplayer',
         'css!fonts/iconfont': 'css!' + 'fonts/iconfont',
         'css!todomvc-app-css': 'css!' + 'todomvc-app-css/index.css',
