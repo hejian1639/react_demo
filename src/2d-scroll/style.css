@@ -21,7 +21,7 @@
     left: 0;
     width: 100%;
     background: #ccc;
-    overflow: hidden;
+    /*overflow: scroll;*/
 }
 
 .header {

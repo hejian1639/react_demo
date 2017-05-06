@@ -87,5 +87,9 @@
     "typings-for-css-modules-loader": "0.2.0",
     "webpack": "2.2.1",
     "webpack-dev-server": "2.4.1"
+  },
+  "jest": {
+    "moduleFileExtensions": ["ts", "tsx", "js", "jsx"],
+    "testMatch": ["**/__tests__/*.(ts|tsx|js)"]
   }
 }
