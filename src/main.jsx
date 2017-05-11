@@ -100,6 +100,11 @@ ReactDOM.render((
                     cb(null, Responsive.default);
                 });
             }} />
+            <Route path="/echart*" getComponent={(nextState, cb) => {
+                window.require(['dist/echart_test'], (EChartTest) => {
+                    cb(null, EChartTest.default);
+                });
+            }} />
             <Route path="/kitchensink" getComponent={(nextState, cb) => {
                 window.require(['dist/kitchensink'], (Kitchensink) => {
                     cb(null, Kitchensink.Framework);

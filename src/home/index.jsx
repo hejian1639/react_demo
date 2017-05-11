@@ -75,6 +75,10 @@ const NAV_LINKS = {
         link: '/2d-scroll',
         title: 'Go to 2D Scroll'
     },
+    echart_test: {
+        link: '/echart_test',
+        title: 'Go to eChart Test'
+    },
 
 };
 
