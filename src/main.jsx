@@ -61,7 +61,7 @@ ReactDOM.render((
             }} />
 
             <Route path="/starter_template" getComponent={(nextState, cb) => {
-                window.require(['dist/starter-template'], (StarterTemplate) => {
+                window.require(['dist/starter_template'], (StarterTemplate) => {
                     cb(null, StarterTemplate.default);
                 });
             }} />
@@ -103,6 +103,11 @@ ReactDOM.render((
             <Route path="/echart*" getComponent={(nextState, cb) => {
                 window.require(['dist/echart_test'], (EChartTest) => {
                     cb(null, EChartTest.default);
+                });
+            }} />
+            <Route path="/video*" getComponent={(nextState, cb) => {
+                window.require(['dist/video_test'], (VideoTest) => {
+                    cb(null, VideoTest.default);
                 });
             }} />
             <Route path="/kitchensink" getComponent={(nextState, cb) => {

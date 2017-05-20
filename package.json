@@ -76,6 +76,7 @@
     "babel-preset-stage-0": "6.5.0",
     "babel-register": "^6.24.1",
     "babel-runtime": "6.23.0",
+    "body-parser": "^1.17.2",
     "css-modulesify": "^0.27.2",
     "jest": "16.0.0",
     "react": "15.4.2",
@@ -84,12 +85,17 @@
     "ts-loader": "^2.0.1",
     "typed-css-modules": "^0.2.0",
     "typescript": "^2.1.4",
-    "typings-for-css-modules-loader": "0.2.0",
-    "webpack": "2.2.1",
-    "webpack-dev-server": "2.4.1"
+    "typings-for-css-modules-loader": "0.2.0"
   },
   "jest": {
-    "moduleFileExtensions": ["ts", "tsx", "js", "jsx"],
-    "testMatch": ["**/__tests__/*.(ts|tsx|js)"]
+    "moduleFileExtensions": [
+      "ts",
+      "tsx",
+      "js",
+      "jsx"
+    ],
+    "testMatch": [
+      "**/__tests__/*.(ts|tsx|js)"
+    ]
   }
 }
