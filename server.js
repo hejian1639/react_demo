@@ -27,6 +27,137 @@ app.get('/', function(req, res) {
 
 });
 
+app.get('/favicon.ico', function(req, res) {
+  fs.readFile('favicon.ico', function (err, data) {
+    if (err) {
+      res.status(404).send('Server.js > 404 - Page Not Found');
+      return;
+    }
+  	res.status(200).send(data.toString());
+  });
+
+});
+
+const NAV_LINKS1 = {
+    react_page: {
+        link: '/react_page',
+        title: 'Go to React Page'
+    },
+    'form': {
+        link: '/form',
+        title: 'Go to Form Page'
+    },
+    jmui: {
+        link: '/jmui',
+        title: 'Go to JMUI'
+    },
+    kitchensink: {
+        link: '/kitchensink',
+        title: 'Go to kitchensink'
+    },
+    animation: {
+        link: '/animation',
+        title: 'Go to Animation Page'
+    },
+    music: {
+        link: '/music',
+        title: 'Go to Music Page'
+    },
+    starter_template: {
+        link: '/starter_template',
+        title: 'Go to Starter Template Page'
+    },
+
+    bootstrap_react: {
+        link: '/bootstrap_react',
+        title: 'Go to React Bootstrap Page'
+    },
+
+    todos: {
+        link: '/todos',
+        title: 'Go to Todo list'
+    },
+    typescript: {
+        link: '/typescript',
+        title: 'Go to Typescript'
+    },
+    '2d-scroll': {
+        link: '/2d-scroll',
+        title: 'Go to 2D Scroll'
+    },
+    echart_test: {
+        link: '/echart_test',
+        title: 'Go to eChart Test'
+    },
+    video_test: {
+        link: '/video_test',
+        title: 'Go to Video Test'
+    },
+
+};
+
+const NAV_LINKS2 = {
+    bootstrap_popup: {
+        link: '/bootstrap_popup',
+        title: 'Go to Bootstrap Popup Page'
+    },
+
+    react_page: {
+        link: '/react_page',
+        title: 'Go to React Page'
+    },
+    'form': {
+        link: '/form',
+        title: 'Go to Form Page'
+    },
+    jmui: {
+        link: '/jmui',
+        title: 'Go to JMUI'
+    },
+    kitchensink: {
+        link: '/kitchensink',
+        title: 'Go to kitchensink'
+    },
+    animation: {
+        link: '/animation',
+        title: 'Go to Animation Page'
+    },
+    music: {
+        link: '/music',
+        title: 'Go to Music Page'
+    },
+    starter_template: {
+        link: '/starter_template',
+        title: 'Go to Starter Template Page'
+    },
+
+    bootstrap_react: {
+        link: '/bootstrap_react',
+        title: 'Go to React Bootstrap Page'
+    },
+
+    todos: {
+        link: '/todos',
+        title: 'Go to Todo list'
+    },
+    mobx_todos: {
+        link: '/mobx_todos',
+        title: 'Go to MobX Todo list'
+    },
+    responsive: {
+        link: '/responsive',
+        title: 'Go to Responsive Page'
+    },
+};
+
+app.get('/service/home_list1', function(req, res) {
+		res.status(200).send(JSON.stringify(NAV_LINKS1));
+});
+
+app.get('/service/home_list2', function(req, res) {
+		res.status(200).send(JSON.stringify(NAV_LINKS2));
+});
+
 app.get('*', function(req, res) {
 	res.status(404).send('Server.js > 404 - Page Not Found');
 });

@@ -28,113 +28,117 @@ function Wrapper({ children }) {
     return children;
 }
 
-const NAV_LINKS = {
-    react_page: {
-        link: '/react_page',
-        title: 'Go to React Page'
-    },
-    'form': {
-        link: '/form',
-        title: 'Go to Form Page'
-    },
-    jmui: {
-        link: '/jmui',
-        title: 'Go to JMUI'
-    },
-    kitchensink: {
-        link: '/kitchensink',
-        title: 'Go to kitchensink'
-    },
-    animation: {
-        link: '/animation',
-        title: 'Go to Animation Page'
-    },
-    music: {
-        link: '/music',
-        title: 'Go to Music Page'
-    },
-    starter_template: {
-        link: '/starter_template',
-        title: 'Go to Starter Template Page'
-    },
+// const NAV_LINKS = {
+//     react_page: {
+//         link: '/react_page',
+//         title: 'Go to React Page'
+//     },
+//     'form': {
+//         link: '/form',
+//         title: 'Go to Form Page'
+//     },
+//     jmui: {
+//         link: '/jmui',
+//         title: 'Go to JMUI'
+//     },
+//     kitchensink: {
+//         link: '/kitchensink',
+//         title: 'Go to kitchensink'
+//     },
+//     animation: {
+//         link: '/animation',
+//         title: 'Go to Animation Page'
+//     },
+//     music: {
+//         link: '/music',
+//         title: 'Go to Music Page'
+//     },
+//     starter_template: {
+//         link: '/starter_template',
+//         title: 'Go to Starter Template Page'
+//     },
 
-    bootstrap_react: {
-        link: '/bootstrap_react',
-        title: 'Go to React Bootstrap Page'
-    },
+//     bootstrap_react: {
+//         link: '/bootstrap_react',
+//         title: 'Go to React Bootstrap Page'
+//     },
 
-    todos: {
-        link: '/todos',
-        title: 'Go to Todo list'
-    },
-    typescript: {
-        link: '/typescript',
-        title: 'Go to Typescript'
-    },
-    '2d-scroll': {
-        link: '/2d-scroll',
-        title: 'Go to 2D Scroll'
-    },
-    echart_test: {
-        link: '/echart_test',
-        title: 'Go to eChart Test'
-    },
+//     todos: {
+//         link: '/todos',
+//         title: 'Go to Todo list'
+//     },
+//     typescript: {
+//         link: '/typescript',
+//         title: 'Go to Typescript'
+//     },
+//     '2d-scroll': {
+//         link: '/2d-scroll',
+//         title: 'Go to 2D Scroll'
+//     },
+//     echart_test: {
+//         link: '/echart_test',
+//         title: 'Go to eChart Test'
+//     },
+//     video_test: {
+//         link: '/video_test',
+//         title: 'Go to Video Test'
+//     },
 
-};
+// };
 
-const NAV_LINKS1 = {
-    bootstrap_popup: {
-        link: '/bootstrap_popup',
-        title: 'Go to Bootstrap Popup Page'
-    },
+// const NAV_LINKS1 = {
+//     bootstrap_popup: {
+//         link: '/bootstrap_popup',
+//         title: 'Go to Bootstrap Popup Page'
+//     },
 
-    react_page: {
-        link: '/react_page',
-        title: 'Go to React Page'
-    },
-    'form': {
-        link: '/form',
-        title: 'Go to Form Page'
-    },
-    jmui: {
-        link: '/jmui',
-        title: 'Go to JMUI'
-    },
-    kitchensink: {
-        link: '/kitchensink',
-        title: 'Go to kitchensink'
-    },
-    animation: {
-        link: '/animation',
-        title: 'Go to Animation Page'
-    },
-    music: {
-        link: '/music',
-        title: 'Go to Music Page'
-    },
-    starter_template: {
-        link: '/starter_template',
-        title: 'Go to Starter Template Page'
-    },
+//     react_page: {
+//         link: '/react_page',
+//         title: 'Go to React Page'
+//     },
+//     'form': {
+//         link: '/form',
+//         title: 'Go to Form Page'
+//     },
+//     jmui: {
+//         link: '/jmui',
+//         title: 'Go to JMUI'
+//     },
+//     kitchensink: {
+//         link: '/kitchensink',
+//         title: 'Go to kitchensink'
+//     },
+//     animation: {
+//         link: '/animation',
+//         title: 'Go to Animation Page'
+//     },
+//     music: {
+//         link: '/music',
+//         title: 'Go to Music Page'
+//     },
+//     starter_template: {
+//         link: '/starter_template',
+//         title: 'Go to Starter Template Page'
+//     },
 
-    bootstrap_react: {
-        link: '/bootstrap_react',
-        title: 'Go to React Bootstrap Page'
-    },
+//     bootstrap_react: {
+//         link: '/bootstrap_react',
+//         title: 'Go to React Bootstrap Page'
+//     },
 
-    todos: {
-        link: '/todos',
-        title: 'Go to Todo list'
-    },
-    mobx_todos: {
-        link: '/mobx_todos',
-        title: 'Go to MobX Todo list'
-    },
-    responsive: {
-        link: '/responsive',
-        title: 'Go to Responsive Page'
-    },
-};
+//     todos: {
+//         link: '/todos',
+//         title: 'Go to Todo list'
+//     },
+//     mobx_todos: {
+//         link: '/mobx_todos',
+//         title: 'Go to MobX Todo list'
+//     },
+//     responsive: {
+//         link: '/responsive',
+//         title: 'Go to Responsive Page'
+//     },
+// };
 
 export default React.createClass({
 
@@ -155,15 +159,18 @@ export default React.createClass({
             this.bootstrapTheme = cssAPI.load('lib/bootstrap-theme', resolve);
         });
 
-        Promise.all([p1, p2]).then(values => {
+        var p3 = $.ajax('/service/home_list1', { dataType: "json" }).then((list) => this.setState({ nav_links: list }));
+
+        Promise.all([p1, p2, p3]).then(() => {
             this.setState({ loading: false });
             $('#pageLoading').hide();
-        });
+            // console.log(this.state.nav_links);
+        }).catch((e) => console.log(e));
     },
 
     getInitialState: function () {
         console.log('getInitialState');
-        return { nav_links: NAV_LINKS, lang: en_US, loading: true };
+        return { nav_links: null, lang: en_US, loading: true };
     },
 
     timerId: null,
@@ -184,7 +191,7 @@ export default React.createClass({
 
 
     refresh: function () {
-        this.setState({ nav_links: NAV_LINKS1 });
+        $.ajax('/service/home_list2', { dataType: "json" }).then((list) => this.setState({ nav_links: list }));
     },
 
 
