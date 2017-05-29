@@ -214,7 +214,7 @@ module.exports = {
                 }
             },
             {
-                test: /\.(eot|ttf|svg|m4a|ogg)$/,
+                test: /\.(eot|ttf|svg|m4a|ogg|mp3)$/,
                 use: {
                     loader: 'file-loader',
                     options: {

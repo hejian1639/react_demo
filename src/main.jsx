@@ -134,11 +134,12 @@ ReactDOM.render((
 
 });
 
-$("#jquery_jplayer_1").jPlayer({
+$("#jquery_jplayer").jPlayer({
     ready: function (event) {
     },
     swfPath: "jplayer",
-    supplied: "m4a, oga",
+    cssSelectorAncestor: null,
+    supplied: "mp3",
     wmode: "window",
     useStateClassSkin: true,
     autoBlur: false,

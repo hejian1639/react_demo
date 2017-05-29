@@ -5,12 +5,14 @@ import $ from 'jquery'
 export default class Music extends React.Component {
 
     componentDidMount() {
-        $("#jquery_jplayer_1").jPlayer("setMedia", {
+        $('#pageLoading').hide();
+
+        $("#jquery_jplayer").jPlayer("setMedia", {
             title: "Bubble",
-            m4a: require("../assets/Miaow-07-Bubble.m4a"),
-            oga: require("../assets/Miaow-07-Bubble.ogg")
+            mp3: require("../assets/王菲-匆匆那年-(电影《匆匆那年》同名主题曲).mp3")
         });
-        $("#jquery_jplayer_1").jPlayer("play");
+        $("#jquery_jplayer").jPlayer("option", "cssSelectorAncestor", "#jp_container_1");
+        // $("#jquery_jplayer").jPlayer("play");
 
     }
 
@@ -49,9 +51,10 @@ export default class Music extends React.Component {
                     <div className="jp-no-solution">
                         <span>Update Required</span>
                         To play the media you will need to either update your browser to a recent version or update your <a href="http://get.adobe.com/flashplayer/" target="_blank">Flash plugin</a>.
-		                </div>
+                        </div>
                 </div>
             </div>
+
         );
     }
 }

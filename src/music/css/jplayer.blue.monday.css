@@ -14,6 +14,9 @@
  * Skin Version: 5.1 (jPlayer 2.8.0)
  * Date: 13th November 2014
  */
+
+ :global {
+
 .jp-audio *:focus,
 .jp-audio-stream *:focus,
 .jp-video *:focus {
@@ -547,5 +550,5 @@ span.jp-artist {
   display: block;
   text-align: center;
   font-weight: bold; }
-
+ }
 /* @end */
