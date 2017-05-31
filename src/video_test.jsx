@@ -56,11 +56,11 @@ export default class VideoTest extends React.Component {
                     </Button>
                 <br />
                 <br />
-                <video id='mp4_video' width='600' height='300' className="video-js vjs-default-skin" controls preload="none" width="640" height="360">
+                <video id='mp4_video' className="video-js vjs-default-skin vjs-16-9" controls preload="none" >
                     <source src="http://localhost/oceans.mp4" type="video/mp4" />
                 </video>
                 <br />
-                <video id="m3u8_video" width='600' height='300' className="video-js vjs-default-skin" controls data-setup='{"example_option":true}'>
+                <video id="m3u8_video" className="video-js vjs-default-skin vjs-16-9" controls >
                     <source src="http://localhost/m3u8/t.m3u8" type="application/x-mpegURL" />
                 </video>
                 <br />
