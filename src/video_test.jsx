@@ -19,6 +19,10 @@ export default class VideoTest extends React.Component {
         this.mp4Player = videojs('mp4_video');
         this.m3u8Player = videojs('m3u8_video');
         // player.play();
+
+        $('#mp4_video_html5_api').attr('webkit-playsinline', 'true').attr('playsinline', 'true');
+
+        $('#m3u8_video_html5_api').attr('webkit-playsinline', 'true').attr('playsinline', 'true');
     }
 
     // destroy player on unmount
