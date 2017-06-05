@@ -9,6 +9,8 @@ import fs from 'fs';
 const app = express();
 app.use('/node_modules', express.static(path.join(__dirname, './node_modules')))
 app.use('/lib', express.static(path.join(__dirname, './lib')))
+app.use('', express.static(__dirname));
+
 const webpackDevMiddleware = require('webpack-dev-middleware');
 const compiler = webpack(config);
 app.use(webpackDevMiddleware(compiler, { publicPath: config.output.publicPath }));
@@ -29,18 +31,31 @@ app.get('/', function(req, res) {
 
 });
 
-app.get('/favicon.ico', function(req, res) {
-    fs.readFile('favicon.ico', function(err, data) {
-        if (err) {
-            res.status(404)
-                .send('Server.js > 404 - Page Not Found');
-            return;
-        }
-        res.status(200)
-            .send(data.toString());
-    });
+// app.get('/favicon.ico', function(req, res) {
+//     fs.readFile('favicon.ico', function(err, data) {
+//         if (err) {
+//             res.status(404)
+//                 .send('Server.js > 404 - Page Not Found');
+//             return;
+//         }
+//         res.status(200)
+//             .send(data.toString());
+//     });
 
-});
+// });
+
+// app.get('/manifest.json', function(req, res) {
+//     fs.readFile('manifest.json', function(err, data) {
+//         if (err) {
+//             res.status(404)
+//                 .send('Server.js > 404 - Page Not Found');
+//             return;
+//         }
+//         res.status(200)
+//             .send(data.toString());
+//     });
+
+// });
 
 const NAV_LINKS1 = {
     react_page: {

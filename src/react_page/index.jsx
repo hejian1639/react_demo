@@ -3,6 +3,7 @@ import { Link } from 'react-router'
 import React from 'react'
 import style from './style.css'
 import Header from 'header'
+import $ from 'jquery'
 
 
 class ReactPage extends React.Component {
@@ -31,8 +32,10 @@ class ReactPage extends React.Component {
         timeout(1000).then((value) => {
             this.setState({ text: value });
         });
+        $('#pageLoading').hide();
 
     }
+    
 
     componentWillUnmount() {
         console.log('componentWillUnmount');

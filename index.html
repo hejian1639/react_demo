@@ -9,6 +9,16 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
     <meta name="renderer" content="webkit">
     <meta http-equiv="Cache-Control" content="no-siteapp" />
+    <title>React Demo</title>
+    <link rel="manifest" href="/manifest.json">
+    <!-- Add to home screen for Safari on iOS -->
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="apple-mobile-web-app-title" content="React Demo">
+    <link rel="apple-touch-icon" href="images/icons/icon-152x152.png">
+    <meta name="msapplication-TileImage" content="images/icons/icon-144x144.png">
+    <meta name="msapplication-TileColor" content="#2F3BA2">
+
     <link rel="stylesheet" href="lib/reset.css" type="text/css" />
     <style>
         @keyframes page-loading {
@@ -61,6 +71,12 @@
         // Start loading the main app file. Put all of
         // your application logic in there.
         requirejs(['dist/main']);
+
+        if ('serviceWorker' in navigator) {
+            navigator.serviceWorker
+                .register('./service-worker.js')
+                .then(function() { console.log('Service Worker Registered'); });
+        }
 
     </script>
 </body>
