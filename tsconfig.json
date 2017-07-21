@@ -17,6 +17,7 @@
         "experimentalDecorators": true,
         "preserveConstEnums": true,
         "sourceMap": true,
+        "typeRoots" : ["./typings"],
         "skipLibCheck": true
     }
 }
