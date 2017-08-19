@@ -5,6 +5,7 @@ import 'css!bootstrap-theme'
 import BootstrapButton from './button'
 import BootstrapModal from './modal'
 import { browserHistory } from 'react-router'
+import $ from 'jquery'
 
 var unlisten;
 
@@ -12,6 +13,8 @@ export default React.createClass({
 
     componentWillMount() {
         console.log('componentWillMount');
+
+        $('#pageLoading').hide();
 
         unlisten = browserHistory.listen((location, action) => {
             // location is an object like window.location 

@@ -9,7 +9,7 @@ import fs from 'fs';
 const app = express();
 app.use('/node_modules', express.static(path.join(__dirname, './node_modules')))
 app.use('/lib', express.static(path.join(__dirname, './lib')))
-app.use('', express.static(__dirname));
+// app.use(express.static(__dirname));
 
 const webpackDevMiddleware = require('webpack-dev-middleware');
 const compiler = webpack(config);
