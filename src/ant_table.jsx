@@ -5,29 +5,28 @@ import 'css!bootstrap';
 import 'css!bootstrap-theme';
 
 import 'css!antd';
-import { Icon, Table } from 'antd';
-
-
+import { Icon, Table, DatePicker } from 'antd';
+const { MonthPicker, RangePicker } = DatePicker;
+import moment from 'moment';
+const dateFormat = 'YYYY/MM/DD';
+const monthFormat = 'YYYY/MM';
 
 export default React.createClass({
     componentWillMount() {
         $('#pageLoading').hide();
     },
 
-    render() {
-        // var dataSource = [{
-        //     key: '1',
-        //     name: '胡彦斌',
-        //     age: 32,
-        //     address: '西湖区湖底公园1号'
-        // }, {
-        //     key: '2',
-        //     name: '胡彦祖',
-        //     age: 42,
-        //     address: '西湖区湖底公园1号'
-        // }];
+    onChange(value, dateString) {
+        console.log('Selected Time: ', value);
+        console.log('Formatted Selected Time: ', dateString);
+        console.log(new Date(value));
+    },
 
-        // return <Table dataSource={dataSource} />
+    onOk(value) {
+        console.log('onOk: ', value);
+    },
+
+    render() {
 
         const columns = [{
             title: '姓名',
@@ -76,7 +75,18 @@ export default React.createClass({
         }];
 
 
-        return (<Table columns={columns} dataSource={data} onRowClick={function () { console.log("onRowClick") }} onRowHover={function () { console.log("onMyRowHover") }} />);
+        return (
+            <div>
+                <Table columns={columns} dataSource={data} onRowClick={function () { console.log("onRowClick") }} onRowHover={function () { console.log("onMyRowHover") }} />
+                <DatePicker defaultValue={moment()} format={dateFormat} onChange={this.onChange} onOk={this.onOk} />
+                <br />
+                <MonthPicker defaultValue={moment('2015/01', monthFormat)} format={monthFormat} />
+                <br />
+                <RangePicker
+                    defaultValue={[moment('2015/01/01', dateFormat), moment('2015/01/01', dateFormat)]}
+                    format={dateFormat}
+                />
+            </div>);
     },
 });
 
