@@ -110,6 +110,16 @@ ReactDOM.render((
                     cb(null, VideoTest.default);
                 });
             }} />
+            <Route path="/react_ui*" getComponent={(nextState, cb) => {
+                window.require(['dist/react_ui_test'], (ReactUITest) => {
+                    cb(null, ReactUITest.default);
+                });
+            }} />
+            <Route path="/ant*" getComponent={(nextState, cb) => {
+                window.require(['dist/ant_table'], (AntTable) => {
+                    cb(null, AntTable.default);
+                });
+            }} />
             <Route path="/kitchensink" getComponent={(nextState, cb) => {
                 window.require(['dist/kitchensink'], (Kitchensink) => {
                     cb(null, Kitchensink.Framework);

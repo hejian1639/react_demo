@@ -112,6 +112,15 @@ const NAV_LINKS1 = {
         link: '/video_test',
         title: 'Go to Video Test'
     },
+    react_ui_test: {
+        link: '/react_ui_test',
+        title: 'Go to React UI Test'
+    },
+
+    ant: {
+        link: '/ant',
+        title: 'Go to Ant Design Test'
+    },
 
 };
 
