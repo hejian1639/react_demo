@@ -1,9 +1,9 @@
 
 import React from 'react'
-import { Navbar, Nav, NavItem, NavDropdown, MenuItem } from 'react-bootstrap';
+import { Navbar, Nav, NavItem, NavDropdown, MenuItem, ButtonToolbar, ToggleButtonGroup, ToggleButton } from 'react-bootstrap';
 import 'css!bootstrap'
 import 'css!bootstrap-theme'
-
+import $ from 'jquery'
 
 
 export default React.createClass({
@@ -11,6 +11,10 @@ export default React.createClass({
         router: React.PropTypes.object.isRequired,
     },
 
+    componentWillMount: function () {
+        $('#pageLoading').hide();
+    },
+    
     handleClick: function (path) {
         this.context.router.push({
             pathname: path,
@@ -30,7 +34,16 @@ export default React.createClass({
                     <Navbar.Collapse>
                         <Nav>
                             <NavItem eventKey={1} href="#">Link</NavItem>
-                            <NavItem eventKey={2} href="#">Link</NavItem>
+                            <NavItem>
+                                <ToggleButtonGroup type="radio" name="options" defaultValue={1}>
+                                    <ToggleButton value={1}>
+                                    Radio 1 (pre-checked)
+                                    </ToggleButton>
+                                    <ToggleButton value={2}>Radio 2</ToggleButton>
+
+                                    <ToggleButton value={3}>Radio 3</ToggleButton>
+                                </ToggleButtonGroup>
+                            </NavItem>
                             <NavDropdown eventKey={3} title="Dropdown" id="basic-nav-dropdown">
                                 <MenuItem eventKey={3.1}>Action</MenuItem>
                                 <MenuItem eventKey={3.2}>Another action</MenuItem>
