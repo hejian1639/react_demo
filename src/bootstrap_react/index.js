@@ -10,7 +10,10 @@ export default React.createClass({
     contextTypes: {
         router: React.PropTypes.object.isRequired,
     },
-
+    getInitialState: function () {
+        console.log('getInitialState');
+        return { activeKey: 1 };
+    },
     componentWillMount: function () {
         $('#pageLoading').hide();
     },
@@ -21,28 +24,29 @@ export default React.createClass({
         })
     },
 
+    handleSelect: function(selectedKey) {
+        console.log('selected ' + selectedKey);
+        this.setState({activeKey: selectedKey});
+    },
+
     render: function () {
         return (
             <div >
-                <Navbar inverse collapseOnSelect>
+                <Navbar collapseOnSelect>
                     <Navbar.Header>
                         <Navbar.Brand>
                             <a href="javascript:void(0)" onClick={this.handleClick.bind(this, '/')}>React-Bootstrap</a>
                         </Navbar.Brand>
-                        <Navbar.Toggle />
                     </Navbar.Header>
+                    <Nav bsStyle="pills" activeKey={this.state.activeKey} onSelect={this.handleSelect}>
+                        <NavItem eventKey={1} >最大</NavItem>
+                        <NavItem eventKey={2} >最小</NavItem>
+                        <NavItem eventKey={3} >平均值</NavItem>
+                    </Nav>
                     <Navbar.Collapse>
                         <Nav>
                             <NavItem eventKey={1} href="#">Link</NavItem>
                             <NavItem>
-                                <ToggleButtonGroup type="radio" name="options" defaultValue={1}>
-                                    <ToggleButton value={1}>
-                                    Radio 1 (pre-checked)
-                                    </ToggleButton>
-                                    <ToggleButton value={2}>Radio 2</ToggleButton>
-
-                                    <ToggleButton value={3}>Radio 3</ToggleButton>
-                                </ToggleButtonGroup>
                             </NavItem>
                             <NavDropdown eventKey={3} title="Dropdown" id="basic-nav-dropdown">
                                 <MenuItem eventKey={3.1}>Action</MenuItem>
