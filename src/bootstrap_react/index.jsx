@@ -1,6 +1,6 @@
 
 import React from 'react'
-import { Navbar, Nav, NavItem, NavDropdown, MenuItem, ButtonToolbar, ToggleButtonGroup, ToggleButton } from 'react-bootstrap';
+import { Navbar, Nav, NavItem, NavDropdown, MenuItem, ButtonToolbar, ToggleButtonGroup, ToggleButton, Grid, Row, Col } from 'react-bootstrap';
 import 'css!bootstrap'
 import 'css!bootstrap-theme'
 import $ from 'jquery'
@@ -17,19 +17,43 @@ export default React.createClass({
     componentWillMount: function () {
         $('#pageLoading').hide();
     },
-    
+
     handleClick: function (path) {
         this.context.router.push({
             pathname: path,
         })
     },
 
-    handleSelect: function(selectedKey) {
+    handleSelect: function (selectedKey) {
         console.log('selected ' + selectedKey);
-        this.setState({activeKey: selectedKey});
+        this.setState({ activeKey: selectedKey });
     },
 
     render: function () {
+        const gridInstance = (
+            <Grid>
+                <Row className="show-grid">
+                    <Col xs={12} md={8}><code>&lt;{'Col xs={12} md={8}'} /&gt;</code></Col>
+                    <Col xs={6} md={4}><code>&lt;{'Col xs={6} md={4}'} /&gt;</code></Col>
+                </Row>
+
+                <Row className="show-grid">
+                    <Col xs={6} md={4}><code>&lt;{'Col xs={6} md={4}'} /&gt;</code></Col>
+                    <Col xs={6} md={4}><code>&lt;{'Col xs={6} md={4}'} /&gt;</code></Col>
+                    <Col xsHidden md={4}><code>&lt;{'Col xsHidden md={4}'} /&gt;</code></Col>
+                </Row>
+
+                <Row className="show-grid">
+                    <Col xs={6} xsOffset={6}><code>&lt;{'Col xs={6} xsOffset={6}'} /&gt;</code></Col>
+                </Row>
+
+                <Row className="show-grid">
+                    <Col md={6} mdPush={6}><code>&lt;{'Col md={6} mdPush={6}'} /&gt;</code></Col>
+                    <Col md={6} mdPull={6}><code>&lt;{'Col md={6} mdPull={6}'} /&gt;</code></Col>
+                </Row>
+            </Grid>
+        );
+
         return (
             <div >
                 <Navbar collapseOnSelect>
@@ -63,11 +87,11 @@ export default React.createClass({
                     </Navbar.Collapse>
                 </Navbar>
                 <div className="container">
-
-                    <div style={{ textAlign: 'center', padding: '40px 15px' }}>
+                    {gridInstance}
+                    {/* <div style={{ textAlign: 'center', padding: '40px 15px' }}>
                         <h1>Bootstrap starter template</h1>
                         <p className="lead">Use this document as a way to quickly start any new project.<br /> All you get is this text and a mostly barebones HTML document.</p>
-                    </div>
+                    </div> */}
 
                 </div>
             </div>
